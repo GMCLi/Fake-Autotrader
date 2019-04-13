@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+//import '../src/components/CreditcardForm/styles.css'
 import App from './App';
+//import Form from '../src/components/CreditcardForm/Form'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
