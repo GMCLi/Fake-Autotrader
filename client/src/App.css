@@ -31,3 +31,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+.card {
+  width: 400px;
+  height: 17rem;
+  border-style: inset;
+  margin: 25px;
+  position: center;
+}
+
+
+
+ul {
+  list-style-type: none;
+}
