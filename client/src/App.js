@@ -23,7 +23,8 @@ class App extends Component {
     //Empty Array For Listings To Be Filled By Axios GET Request
     listings: [],
   }
-  
+
+
   //Axios GET Request - no limit required, brings up top 20
   // Search = () => {
   componentDidMount() {
@@ -43,12 +44,14 @@ class App extends Component {
       // return <Listings key={listing} id={listing.id} name={listing.name} username={listing.username} />
       return <Listings id={listing.id} key={listing.id} year={listing.build.year} make={listing.build.make} model={listing.build.model} price={listing.ref_price} images={listing.media.photo_links} />
     })
+
     return (
       <div className="App">
 
         <Router>
           <Navbar />
           <div>
+            {/* <Route exact path="/:id" component={singlelisting} /> */}
             <Route exact path="/" render={() => (<div className="row">{singlelisting}</div>)} />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Signup} />
