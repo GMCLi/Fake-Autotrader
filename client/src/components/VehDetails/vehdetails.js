@@ -1,63 +1,305 @@
-import React from "react";
+import React, { Component } from "react";
 import "./styles.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import axios from "axios";
+// import { Button, Collapse } from "react-bootstrap";
 
-function VehDetails(props) {
-  const images = [props.images
-    //   "https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2017/06/2018-BMW-M4-110.jpg?fill=2:1&resize=980:*",
-    //   "https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/15q4/662479/dinan-s1-bmw-m4-instrumented-test-review-car-and-driver-photo-662862-s-original.jpg",
-    //   "https://acd27e678d077c01a703-8687be8436127d2a9934ef3f865789b4.ssl.cf1.rackcdn.com/WBS4S9C57GK578711/a321a2039c219bfdffa04310ef4ac101.jpg"
-  ];
-  // console.log(images);
-  // console.log(props.images.splice(0-5));
-  const displayImg = props.images.splice(0 - 5).map(image => {
-    return <div key={props.id}>
-      <img src={image} />
-    </div>
-  })
+//Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
+const marketAPIKey = "1JFtAR2y1gPVSkpO6cpkHQlzSWcAHF9G";
 
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0
-  })
+class VehDetails extends React.Component {
+  state = {
+    listing: [],
+    images: [],
+    make: "",
+    model: "",
+    year: "",
+    mileageMile: "",
+    mileageKm: "",
+    exteriorcolor: "",
+    interiorcolor: "",
+    dealerinfo: [],
+    features: [],
+    exteriorfeatures: [],
+    standardfeatures: [],
+    interiorfeatures: [],
+    safetyfeatures: [],
+    dealershipwebsite: []
+  }
 
-  // console.log(displayImg);
-  return (
-    <div className="card">
+  // constructor(props, context) {
+  //   super(props, context);
 
-      <Carousel>
-        {displayImg}
-        {/* <div>
-        <img src="https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2017/06/2018-BMW-M4-110.jpg?fill=2:1&resize=980:*" />
+  //   this.state = { open: false };
+  // }
+
+  // toggle() {
+  //   this.setState(state => ({ collaspe: !state.collapse }));
+  // }
+
+  componentDidMount() {
+    //"https://jsonplaceholder.typicode.com/users"
+    axios.get("https://marketcheck-prod.apigee.net/v1/listing" + this.props.location.pathname + "?api_key=" + marketAPIKey) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
+      .then(res => {
+        console.log(res.data)
+        const listing = res.data; //.listings
+        this.setState({ listing: listing }) // Full details in this.state.listing
+        this.setState({ images: res.data.media.photo_links }) // Images
+        this.setState({ make: res.data.build.make }) // Make
+        this.setState({ model: res.data.build.model }) // Model
+        this.setState({ year: res.data.build.year }) // Year
+        this.setState({ mileageMile: res.data.miles }) // Mileage in Miles
+        const milesKm = res.data.miles / 0.62137 // Converter from miles to KM
+        this.setState({ mileageKm: milesKm }) // Mileage in KM
+        this.setState({ exteriorcolor: res.data.exterior_color }) // Exterior color
+        // this.setState({ interiorcolor: interior_color }) // Interior color
+        this.setState({ dealerinfo: res.data.dealer }) // Dealership info
+        this.setState({ features: res.data.extra.features }) // Extra features
+        this.setState({ exteriorfeatures: res.data.extra.exterior_f })// Exterior features
+        this.setState({ standardfeatures: res.data.extra.standard_f })// Standard features
+        this.setState({ interiorfeatures: res.data.extra.interior_f })// Interior features
+        this.setState({ safetyfeatures: res.data.extra.safety_f })// Safety features
+        this.setState({ dealershipwebsite: res.data.dealer.website })// Dealership information
+      })
+  }
+  // Gen features map if it exists
+  genFeat() {
+    if (this.state.features === undefined) {
+      return (
+        <h5>No Listed Features</h5>
+      )
+    }
+    else {
+      return (
+        this.state.features.map((features) =>
+          <li>{features}</li>
+        )
+      )
+    }
+  }
+
+  // Ext features map if it exists
+  extFeat() {
+    if (this.state.exteriorfeatures === undefined) {
+      return (
+        <h5>No Listed Exterior Features</h5>
+      )
+    }
+    else {
+      return (
+        this.state.exteriorfeatures.map((features) =>
+          <li>{features}</li>
+        )
+      )
+    }
+  }
+
+  // Sta features map if it exists
+  staFeat() {
+    if (this.state.standardfeatures === undefined) {
+      return (
+        <h5>No Listed Standard Features</h5>
+      )
+    }
+    else {
+      return (
+        this.state.standardfeatures.map((features) =>
+          <li>{features}</li>
+        )
+      )
+    }
+  }
+
+  // Int features map if it exists
+  intFeat() {
+    if (this.state.interiorfeatures === undefined) {
+      return (
+        <h5>No Listed Interior Features</h5>
+      )
+    }
+    else {
+      return (
+        this.state.interiorfeatures.map((features) =>
+          <li>{features}</li>
+        )
+      )
+    }
+  }
+
+  // Int features map if it exists
+  safeFeat() {
+    if (this.state.interiorfeatures === undefined) {
+      return (
+        <h5>No Listed Safety Features</h5>
+      )
+    }
+    else {
+      return (
+        this.state.safetyfeatures.map((features) =>
+          <li>{features}</li>
+        )
+      )
+    }
+  }
+
+  // dealerRelocate() {
+  //   var win = window.open(this.state.dealerinfo.website, '_blank');
+  //   win.focus();
+  // }
+
+  downPay() {
+    window.location.href = "/" + this.state.listing.id + "/downpay";
+  }
+
+  render() {
+    // Number formatter for mileages
+    const formatter = new Intl.NumberFormat('en-US', {
+      maximumFractionDigits: 0
+    })
+
+    // Image map for carousel
+    const displayImg = this.state.images.map(image => {
+      return <div key={this.state.listing.id}>
+        <img src={image} />
       </div>
+    })
+
+    // // Mechanism for collapsing cards
+    // const { open } = this.state;
+
+    //-------------------------MAPPING TESTS------------------------
+    // Features map
+    // const genFeat = this.state.features.map((features) =>
+    //   <li>{features}</li>
+    // )
+
+    // Ext features map
+    // const extFeat = this.state.exteriorfeatures.map((features) =>
+    //   <li>{features}</li>
+    // )
+
+    // Stan features map
+    // const staFeat = this.state.standardfeatures.map((features) =>
+    //   <li>{features}</li>
+    // )
+
+    // Int features map
+    // const intFeat = this.state.interiorfeatures.map((features) =>
+    //   <li>{features}</li>
+    // )
+
+    // // Safe features map
+    // const safeFeat = this.state.safetyfeatures.map((features) =>
+    //   <li>{features}</li>
+    // )
+    return (
       <div>
-        <img src="https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/15q4/662479/dinan-s1-bmw-m4-instrumented-test-review-car-and-driver-photo-662862-s-original.jpg" />
+        {/* Row for carousel */}
+        <div className="row">
+          <div className="col-sm-8">
+            <div className="card" >
+              <Carousel>
+                {displayImg}
+              </Carousel>
+            </div>
+          </div>
+        </div>
+
+        {/* Row for general info */}
+        <div className="row">
+          <div className="col-sm-8">
+            <div className="card">
+              <div className="card-body">
+                <h3>General Information</h3>
+                <p>Make: {this.state.make}</p>
+                <p>Model: {this.state.model}</p>
+                <p>Year: {this.state.year}</p>
+                <p>Mileage in Km: {formatter.format(this.state.mileageKm)}</p>
+                <p>Mileage in Miles: {this.state.mileageMile}</p>
+                <button className="dealerBtn" onClick={this.dealerRelocate}>Go To The Dealership's Website</button>
+                <button className="downpayBtn" onClick={this.downPay}>Put A Down Payment Now!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature Row */}
+        <div className="row features ">
+          {/* Column for general features */}
+          <div className="col-sm-4">
+            <div className="card">
+              {/* <button onClick={() => this.setState({ open: !open })}
+                aria-controls="genfeatCollapse"
+                aria-expanded={open}>
+                Features
+              </button> */}
+              {/* <Collapse in={this.state.open}> */}
+              <div className="card-body">
+                <h3>General Features</h3>
+                <ul>
+                  <li>{this.genFeat()}</li>
+                </ul>
+              </div>
+              {/* </Collapse> */}
+            </div>
+          </div>
+          {/* Column for exterior features */}
+          <div className="col-sm-4">
+            <div className="card">
+              <div className="card-body">
+                <h3>Exterior Features</h3>
+                <ul>
+                  {this.extFeat()}
+                </ul>
+              </div>
+            </div>
+          </div>
+          {/* Column for standard features */}
+          <div className="col-sm-4">
+            <div className="card">
+              {/* <Button onClick={() => this.setState({ open: !open })} aria-controls="standardData" aria-expanded={open}>Standard Features</Button>
+              <Collapse in={this.state.open}> */}
+              <div className="card-body" id="standardData">
+                <ul>
+                  <h3>Standard Features</h3>
+                  {this.staFeat()}
+                </ul>
+              </div>
+              {/* </Collapse> */}
+            </div>
+          </div>
+        </div>
+
+        {/* Feature Row 2*/}
+        <div className="row features ">
+          {/* Column for general features */}
+          <div className="col-sm-4">
+            <div className="card">
+              <div className="card-body">
+                <h3>Interior Features</h3>
+                <ul>
+                  <li>{this.intFeat()}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          {/* Column for exterior features */}
+          <div className="col-sm-4">
+            <div className="card">
+              <div className="card-body">
+                <h3>Safety Features</h3>
+                <ul>
+                  {this.safeFeat()}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <img src="https://acd27e678d077c01a703-8687be8436127d2a9934ef3f865789b4.ssl.cf1.rackcdn.com/WBS4S9C57GK578711/a321a2039c219bfdffa04310ef4ac101.jpg" />
-      </div> */}
-      </Carousel>
-
-      <div className="card-body">
-
-        <p>{props.year} {props.make} {props.model}</p>
-        <p>{formatter.format(props.price)}</p>
-
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
-{/* <ul>
-<li>{props.id}</li>
-<li>{props.name}</li>
-</ul> */}
 
-
-//   <ul>
-//   <li>{props.year} {props.make} {props.model}</li>
-//   <li>{props.price}</li>
-// </ul>
-export default VehDetails;
+export default VehDetails;               

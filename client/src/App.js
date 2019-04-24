@@ -6,13 +6,15 @@ import Navbar from "./components/Navbar/Navbar";
 import Listings from "./components/Listings/listings";
 import Articles from "./components/Articles/articles";
 import Signup from "./components/SignupForm/signupform";
+import VehDetails from "./components/VehDetails/vehdetails";
+import Form from "./components/CreditcardForm/Form";
 
 //User Search for Make
 let makeSearch = "Ferrari";
 //User Search for Model
 let modelSearch = "";
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
-const marketAPIKey = "IWyyLtR20ks9ufNLvbe5WGe9VcZfenfL";
+const marketAPIKey = "1JFtAR2y1gPVSkpO6cpkHQlzSWcAHF9G";
 
 
 
@@ -31,7 +33,7 @@ class App extends Component {
     //"https://jsonplaceholder.typicode.com/users"
     axios.get("https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch + "&rows=25") //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         const listings = res.data.listings; //.listings
         this.setState({ listings })
       })
@@ -44,15 +46,16 @@ class App extends Component {
       // return <Listings key={listing} id={listing.id} name={listing.name} username={listing.username} />
       return <Listings id={listing.id} key={listing.id} year={listing.build.year} make={listing.build.make} model={listing.build.model} price={listing.ref_price} images={listing.media.photo_links} />
     })
-
     return (
       <div className="App">
 
         <Router>
           <Navbar />
           <div>
-            {/* <Route exact path="/:id" component={singlelisting} /> */}
+            {/* <Route exact path="/ZFF77XJA3H0225391-4f033283-94f7-4b68-b7ed-cc576e7f72a6" component={vehicledetail} /> */}
             <Route exact path="/" render={() => (<div className="row">{singlelisting}</div>)} />
+            <Route exact path="/:id" component={VehDetails} />
+            <Route exact path="/:id/downpayment" component={<Form />} />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Signup} />
           </div>
