@@ -1,32 +1,45 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import SignUp from "../SignUp/signUpModal";
 
 function Navbar() {
   return (
-    
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="/">Fake Autotrader</a>
+      <a className="navbar-brand" href="/">
+        Fake Autotrader
+      </a>
       <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
+        <li className="nav-link">
+          <Link
+            to="/"
+            className={
+              window.location.pathname === "/" ? "nav-link active" : "nav-link"
+            }
+          >
             Home
-        </Link>
+          </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-link">
           <Link
             to="/articles"
-            className={window.location.pathname === "/articles" ? "nav-link active" : "nav-link"}
+            className={
+              window.location.pathname === "/articles"
+                ? "nav-link active"
+                : "nav-link"
+            }
           >
             Articles
-        </Link>
+          </Link>
         </li>
         <li className="nav-item">
           <Link
-            to="/signup"
-            className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
+            to="/"
+            className={
+              window.location.pathname === "/" ? "nav-link active" : "nav-link"
+            }
           >
-            Sign Up
-        </Link>
+            <SignUp />
+          </Link>
         </li>
       </ul>
     </nav>
