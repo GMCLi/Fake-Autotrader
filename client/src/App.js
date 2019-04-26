@@ -9,8 +9,6 @@ import VehDetails from "./components/VehDetails/vehdetails";
 import Form from "./components/CreditcardForm/Form";
 import Admin from "./components/Admin/Admin";
 
-//import Form from "./components/CreditcardForm/Form";
-
 //User Search for Make
 let makeSearch = "Ferrari";
 //User Search for Model
@@ -33,10 +31,12 @@ class App extends Component {
     axios
       .get(
         "https://marketcheck-prod.apigee.net/v1/search?api_key=" +
+
         marketAPIKey +
         "&seller_type=dealer&make=" +
         makeSearch +
         "&rows=25"
+
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         // console.log(res.data)
@@ -65,6 +65,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Navbar />
+
           <Switch>
             <Route exact path="/" render={() => <div className="row">{singlelisting}</div>} />
             <Route exact path="/articles" component={Articles} />
