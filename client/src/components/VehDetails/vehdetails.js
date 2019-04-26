@@ -43,9 +43,9 @@ class VehDetails extends Component {
     axios
       .get(
         "https://marketcheck-prod.apigee.net/v1/listing" +
-          this.props.location.pathname +
-          "?api_key=" +
-          marketAPIKey
+        this.props.location.pathname +
+        "?api_key=" +
+        marketAPIKey
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         console.log(res.data);
@@ -114,13 +114,12 @@ class VehDetails extends Component {
     }
   }
 
-  // dealerRelocate() {
-  //   var win = window.open(this.state.dealerinfo.website, '_blank');
-  //   win.focus();
-  // }
+  dealerRelocate = () => {
+    window.location.assign("https://" + this.state.dealershipwebsite)
+  }
 
   downPay() {
-    window.location.href = "/" + this.state.listing.id + "/downpay";
+    window.location.href = window.location.href + "/downpay";
   }
 
   render() {
@@ -141,31 +140,7 @@ class VehDetails extends Component {
     // // Mechanism for collapsing cards
     // const { open } = this.state;
 
-    //-------------------------MAPPING TESTS------------------------
-    // Features map
-    // const genFeat = this.state.features.map((features) =>
-    //   <li>{features}</li>
-    // )
 
-    // Ext features map
-    // const extFeat = this.state.exteriorfeatures.map((features) =>
-    //   <li>{features}</li>
-    // )
-
-    // Stan features map
-    // const staFeat = this.state.standardfeatures.map((features) =>
-    //   <li>{features}</li>
-    // )
-
-    // Int features map
-    // const intFeat = this.state.interiorfeatures.map((features) =>
-    //   <li>{features}</li>
-    // )
-
-    // // Safe features map
-    // const safeFeat = this.state.safetyfeatures.map((features) =>
-    //   <li>{features}</li>
-    // )
     return (
       <div>
         {/* Row for carousel */}
