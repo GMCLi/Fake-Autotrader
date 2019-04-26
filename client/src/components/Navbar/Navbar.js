@@ -31,6 +31,18 @@ function Navbar() {
             Articles
           </Link>
         </li>
+        <li className="nav-link">
+          <Link
+            to="/admin"
+            className={
+              window.location.pathname === "/admin"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            Admin
+          </Link>
+        </li>
         <li className="nav-item">
           <Link
             to="/"

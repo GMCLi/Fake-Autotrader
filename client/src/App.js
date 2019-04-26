@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Listings from "./components/Listings/listings";
 import Articles from "./components/Articles/articles";
 import VehDetails from "./components/VehDetails/vehdetails";
-
-//import Form from "./components/CreditcardForm/Form";
+import Form from "./components/CreditcardForm/Form";
+import Admin from "./components/Admin/Admin";
 
 //User Search for Make
 let makeSearch = "Ferrari";
@@ -31,10 +31,12 @@ class App extends Component {
     axios
       .get(
         "https://marketcheck-prod.apigee.net/v1/search?api_key=" +
-          marketAPIKey +
-          "&seller_type=dealer&make=" +
-          makeSearch +
-          "&rows=25"
+
+        marketAPIKey +
+        "&seller_type=dealer&make=" +
+        makeSearch +
+        "&rows=25"
+
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         // console.log(res.data)
@@ -64,21 +66,17 @@ class App extends Component {
         <Router>
           <Navbar />
 
-          <div>
-            {/* <Route exact path="/ZFF77XJA3H0225391-4f033283-94f7-4b68-b7ed-cc576e7f72a6" component={vehicledetail} /> */}
-            <Route
-              exact
-              path="/"
-              render={() => <div className="row">{singlelisting}</div>}
-            />
-            <Route exact path="/:id" component={VehDetails} />
-            {/* <Route exact path="/:id/downpayment" component={<Form />} /> */}
-            <br />
+          <Switch>
+            <Route exact path="/" render={() => <div className="row">{singlelisting}</div>} />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Articles} />
-          </div>
+            <Route exact path="/admin" component={Admin} />
+            <Route exact path="/:id" component={VehDetails} />
+            <Route exact path="/:id/downpay" component={Form} />
+          </Switch>
         </Router>
-      </div>
+
+      </div >
     );
   }
 }
