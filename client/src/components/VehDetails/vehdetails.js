@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./styles.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
 // import { Button, Collapse } from "react-bootstrap";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
 const marketAPIKey = "Ej0IjiK8ecrggjOcg4dCVy6lauBBlAAS";
 
-class VehDetails extends React.Component {
+class VehDetails extends Component {
   state = {
     listing: [],
     images: [],
@@ -26,7 +26,7 @@ class VehDetails extends React.Component {
     interiorfeatures: [],
     safetyfeatures: [],
     dealershipwebsite: []
-  }
+  };
 
   // constructor(props, context) {
   //   super(props, context);
@@ -40,168 +40,114 @@ class VehDetails extends React.Component {
 
   componentDidMount() {
     //"https://jsonplaceholder.typicode.com/users"
-    axios.get("https://marketcheck-prod.apigee.net/v1/listing" + this.props.location.pathname + "?api_key=" + marketAPIKey) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
+    axios
+      .get(
+        "https://marketcheck-prod.apigee.net/v1/listing" +
+        this.props.location.pathname +
+        "?api_key=" +
+        marketAPIKey
+      ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
-        console.log(res.data)
+        console.log(res.data);
         const listing = res.data; //.listings
-        this.setState({ listing: listing }) // Full details in this.state.listing
-        this.setState({ images: res.data.media.photo_links }) // Images
-        this.setState({ make: res.data.build.make }) // Make
-        this.setState({ model: res.data.build.model }) // Model
-        this.setState({ year: res.data.build.year }) // Year
-        this.setState({ mileageMile: res.data.miles }) // Mileage in Miles
-        const milesKm = res.data.miles / 0.62137 // Converter from miles to KM
-        this.setState({ mileageKm: milesKm }) // Mileage in KM
-        this.setState({ exteriorcolor: res.data.exterior_color }) // Exterior color
+        this.setState({ listing: listing }); // Full details in this.state.listing
+        this.setState({ images: res.data.media.photo_links }); // Images
+        this.setState({ make: res.data.build.make }); // Make
+        this.setState({ model: res.data.build.model }); // Model
+        this.setState({ year: res.data.build.year }); // Year
+        this.setState({ mileageMile: res.data.miles }); // Mileage in Miles
+        const milesKm = res.data.miles / 0.62137; // Converter from miles to KM
+        this.setState({ mileageKm: milesKm }); // Mileage in KM
+        this.setState({ exteriorcolor: res.data.exterior_color }); // Exterior color
         // this.setState({ interiorcolor: interior_color }) // Interior color
-        this.setState({ dealerinfo: res.data.dealer }) // Dealership info
-        this.setState({ features: res.data.extra.features }) // Extra features
-        this.setState({ exteriorfeatures: res.data.extra.exterior_f })// Exterior features
-        this.setState({ standardfeatures: res.data.extra.standard_f })// Standard features
-        this.setState({ interiorfeatures: res.data.extra.interior_f })// Interior features
-        this.setState({ safetyfeatures: res.data.extra.safety_f })// Safety features
-        this.setState({ dealershipwebsite: res.data.dealer.website })// Dealership information
-      })
+        this.setState({ dealerinfo: res.data.dealer }); // Dealership info
+        this.setState({ features: res.data.extra.features }); // Extra features
+        this.setState({ exteriorfeatures: res.data.extra.exterior_f }); // Exterior features
+        this.setState({ standardfeatures: res.data.extra.standard_f }); // Standard features
+        this.setState({ interiorfeatures: res.data.extra.interior_f }); // Interior features
+        this.setState({ safetyfeatures: res.data.extra.safety_f }); // Safety features
+        this.setState({ dealershipwebsite: res.data.dealer.website }); // Dealership information
+      });
   }
   // Gen features map if it exists
   genFeat() {
     if (this.state.features === undefined) {
-      return (
-        <h5>No Listed Features</h5>
-      )
-    }
-    else {
-      return (
-        this.state.features.map((features) =>
-          <li>{features}</li>
-        )
-      )
+      return <h5>No Listed Features</h5>;
+    } else {
+      return this.state.features.map(features => <li>{features}</li>);
     }
   }
 
   // Ext features map if it exists
   extFeat() {
     if (this.state.exteriorfeatures === undefined) {
-      return (
-        <h5>No Listed Exterior Features</h5>
-      )
-    }
-    else {
-      return (
-        this.state.exteriorfeatures.map((features) =>
-          <li>{features}</li>
-        )
-      )
+      return <h5>No Listed Exterior Features</h5>;
+    } else {
+      return this.state.exteriorfeatures.map(features => <li>{features}</li>);
     }
   }
 
   // Sta features map if it exists
   staFeat() {
     if (this.state.standardfeatures === undefined) {
-      return (
-        <h5>No Listed Standard Features</h5>
-      )
-    }
-    else {
-      return (
-        this.state.standardfeatures.map((features) =>
-          <li>{features}</li>
-        )
-      )
+      return <h5>No Listed Standard Features</h5>;
+    } else {
+      return this.state.standardfeatures.map(features => <li>{features}</li>);
     }
   }
 
   // Int features map if it exists
   intFeat() {
     if (this.state.interiorfeatures === undefined) {
-      return (
-        <h5>No Listed Interior Features</h5>
-      )
-    }
-    else {
-      return (
-        this.state.interiorfeatures.map((features) =>
-          <li>{features}</li>
-        )
-      )
+      return <h5>No Listed Interior Features</h5>;
+    } else {
+      return this.state.interiorfeatures.map(features => <li>{features}</li>);
     }
   }
 
   // Int features map if it exists
   safeFeat() {
     if (this.state.interiorfeatures === undefined) {
-      return (
-        <h5>No Listed Safety Features</h5>
-      )
-    }
-    else {
-      return (
-        this.state.safetyfeatures.map((features) =>
-          <li>{features}</li>
-        )
-      )
+      return <h5>No Listed Safety Features</h5>;
+    } else {
+      return this.state.safetyfeatures.map(features => <li>{features}</li>);
     }
   }
 
-  // dealerRelocate() {
-  //   var win = window.open(this.state.dealerinfo.website, '_blank');
-  //   win.focus();
-  // }
+  dealerRelocate = () => {
+    window.location.assign("https://" + this.state.dealershipwebsite)
+  }
 
   downPay() {
-    window.location.href = "/" + this.state.listing.id + "/downpay";
+    window.location.href = window.location.href + "/downpay";
   }
 
   render() {
     // Number formatter for mileages
-    const formatter = new Intl.NumberFormat('en-US', {
+    const formatter = new Intl.NumberFormat("en-US", {
       maximumFractionDigits: 0
-    })
+    });
 
     // Image map for carousel
     const displayImg = this.state.images.map(image => {
-      return <div key={this.state.listing.id}>
-        <img src={image} />
-      </div>
-    })
+      return (
+        <div key={this.state.listing.id}>
+          <img src={image} alt={this.props} />
+        </div>
+      );
+    });
 
     // // Mechanism for collapsing cards
     // const { open } = this.state;
 
-    //-------------------------MAPPING TESTS------------------------
-    // Features map
-    // const genFeat = this.state.features.map((features) =>
-    //   <li>{features}</li>
-    // )
 
-    // Ext features map
-    // const extFeat = this.state.exteriorfeatures.map((features) =>
-    //   <li>{features}</li>
-    // )
-
-    // Stan features map
-    // const staFeat = this.state.standardfeatures.map((features) =>
-    //   <li>{features}</li>
-    // )
-
-    // Int features map
-    // const intFeat = this.state.interiorfeatures.map((features) =>
-    //   <li>{features}</li>
-    // )
-
-    // // Safe features map
-    // const safeFeat = this.state.safetyfeatures.map((features) =>
-    //   <li>{features}</li>
-    // )
     return (
       <div>
         {/* Row for carousel */}
         <div className="row">
           <div className="col-sm-8">
-            <div className="card" >
-              <Carousel>
-                {displayImg}
-              </Carousel>
+            <div className="card">
+              <Carousel>{displayImg}</Carousel>
             </div>
           </div>
         </div>
@@ -217,8 +163,12 @@ class VehDetails extends React.Component {
                 <p>Year: {this.state.year}</p>
                 <p>Mileage in Km: {formatter.format(this.state.mileageKm)}</p>
                 <p>Mileage in Miles: {this.state.mileageMile}</p>
-                <button className="dealerBtn" onClick={this.dealerRelocate}>Go To The Dealership's Website</button>
-                <button className="downpayBtn" onClick={this.downPay}>Put A Down Payment Now!</button>
+                <button className="dealerBtn" onClick={this.dealerRelocate}>
+                  Go To The Dealership's Website
+                </button>
+                <button className="downpayBtn" onClick={this.downPay}>
+                  Put A Down Payment Now!
+                </button>
               </div>
             </div>
           </div>
@@ -249,9 +199,7 @@ class VehDetails extends React.Component {
             <div className="card">
               <div className="card-body">
                 <h3>Exterior Features</h3>
-                <ul>
-                  {this.extFeat()}
-                </ul>
+                <ul>{this.extFeat()}</ul>
               </div>
             </div>
           </div>
@@ -289,17 +237,14 @@ class VehDetails extends React.Component {
             <div className="card">
               <div className="card-body">
                 <h3>Safety Features</h3>
-                <ul>
-                  {this.safeFeat()}
-                </ul>
+                <ul>{this.safeFeat()}</ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-
-export default VehDetails;               
+export default VehDetails;
