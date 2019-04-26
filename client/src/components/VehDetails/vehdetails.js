@@ -6,7 +6,7 @@ import axios from "axios";
 // import { Button, Collapse } from "react-bootstrap";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
-const marketAPIKey = "UxibioITdBc2JA13lmVJMgSXD8fG2pN1";
+const marketAPIKey = "Ej0IjiK8ecrggjOcg4dCVy6lauBBlAAS";
 
 class VehDetails extends Component {
   state = {
