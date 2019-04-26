@@ -14,7 +14,7 @@ let makeSearch = "Ferrari";
 //User Search for Model
 let modelSearch = "";
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
-const marketAPIKey = "1JFtAR2y1gPVSkpO6cpkHQlzSWcAHF9G";
+const marketAPIKey = "Ej0IjiK8ecrggjOcg4dCVy6lauBBlAAS";
 
 
 
@@ -54,10 +54,10 @@ class App extends Component {
           <div>
             {/* <Route exact path="/ZFF77XJA3H0225391-4f033283-94f7-4b68-b7ed-cc576e7f72a6" component={vehicledetail} /> */}
             <Route exact path="/" render={() => (<div className="row">{singlelisting}</div>)} />
-            <Route exact path="/:id" component={VehDetails} />
-            <Route exact path="/:id/downpayment" component={<Form />} />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/:id" component={VehDetails} />
+            <Route exact path="/:id/downpay" component={<Form />} />
           </div>
         </Router>
       </div>
