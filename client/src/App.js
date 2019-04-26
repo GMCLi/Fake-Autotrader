@@ -20,6 +20,8 @@ class App extends Component {
   state = {
     //State - user signed in or not
     signedIn: false,
+    //Information of client
+    clientInfo: [],
     //Empty Array For Listings To Be Filled By Axios GET Request
     listings: []
   };
@@ -65,7 +67,6 @@ class App extends Component {
           <Navbar />
 
           <div>
-            {/* <Route exact path="/ZFF77XJA3H0225391-4f033283-94f7-4b68-b7ed-cc576e7f72a6" component={vehicledetail} /> */}
             <Route
               exact
               path="/"

@@ -10,7 +10,11 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 class App extends Component {
   render() {
     const { user, signOut, signInWithGoogle } = this.props;
-    console.log(user);
+    if (user) {
+      console.log(user.displayName);
+      console.log(user.email);
+      console.log(user.uid);
+    }
     return (
       <div className="App">
         <header className="App-header">
