@@ -21,10 +21,10 @@ export default class Articles extends Component {
       this.state.cars.length > 0 &&
       this.state.cars.map(car => (
         <ol className="text-center" key={car.id}>
-          <p>Title: {car.title}</p>
-          <p>
+          <p key={car.id}>Title: {car.title}</p>
+          <p key={car.id}>
             Link:{" "}
-            <a href={car.link} target={"_blank"}>
+            <a href={car.link} key={car.id} target={"_blank"}>
               {car.link}
             </a>
           </p>
