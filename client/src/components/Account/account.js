@@ -1,18 +1,21 @@
 import React, { Component } from "react";
+import Signup from "../SignUp/signUpModal";
 
 class Account extends Component {
-  state = {
-
-  }
-
 
   render() {
+    const check = this.props.signedin ? <div>Signed In</div> :
+      <div>
+        Please Sign In
+        <Signup />
+      </div>
 
     return (
       <div>
-        Account Page
+        {check}
       </div>
     )
+
   }
 }
 

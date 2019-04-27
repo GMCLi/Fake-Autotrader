@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Auth from "../Authentication/auth";
 
-export default class Example extends Component {
+export default class Signup extends Component {
   constructor(props, context) {
     super(props, context);
 

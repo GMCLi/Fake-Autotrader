@@ -8,6 +8,7 @@ import Articles from "./components/Articles/articles";
 import VehDetails from "./components/VehDetails/vehdetails";
 import Form from "./components/CreditcardForm/Form";
 import Admin from "./components/Admin/Admin";
+import Account from "./components/Account/account";
 
 //import Form from "./components/CreditcardForm/Form";
 
@@ -47,6 +48,7 @@ class App extends Component {
   // }
 
   render() {
+    // Map through the listings
     const singlelisting = this.state.listings.map(listing => {
       // return <Listings key={listing} id={listing.id} name={listing.name} username={listing.username} />
       return (
@@ -61,12 +63,14 @@ class App extends Component {
         />
       );
     });
+
     return (
       <div className="App">
         <Router>
           <Navbar />
           <Switch>
             <Route exact path="/" render={() => <div className="row">{singlelisting}</div>} />
+            <Route exact path="/account" render={() => <Account signedin={this.state.signedIn} />} />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Articles} />
             <Route exact path="/admin" component={Admin} />
