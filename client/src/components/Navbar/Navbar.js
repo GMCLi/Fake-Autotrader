@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SignUp from "../SignUp/signUpModal";
+import "./styles.css";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="/">
+    <nav className="navbar navbar-expand-lg navbar">
+      <a className="navbar-brand-main" href="/">
         Fake Autotrader
       </a>
       <ul className="nav nav-tabs">
@@ -13,7 +14,9 @@ function Navbar() {
           <Link
             to="/"
             className={
-              window.location.pathname === "/" ? "nav-link active" : "nav-link"
+              window.location.pathname === "/"
+                ? "nav-link active"
+                : "nav-link"
             }
           >
             Home
@@ -55,11 +58,13 @@ function Navbar() {
             Account
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item sign">
           <Link
             to="/"
             className={
-              window.location.pathname === "/" ? "nav-link active" : "nav-link"
+              window.location.pathname === "/"
+                ? "nav-link active"
+                : "nav-link"
             }
           >
             <SignUp />

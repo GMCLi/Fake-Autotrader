@@ -1,13 +1,14 @@
-.card {
-  width: 400px;
-  height: 17rem;
+.listingcard {
+  width: 350px;
+  height: 33rem;
   border-style: inset;
-  margin: 25px;
+  margin: auto; 
+  /* Originally 25px Thoughts? => revert back to 25px or keep auto */
   position: center;
 }
 
 img {
-  height: 12rem;
+  height: 20rem!important;
 }
 
 ul {
@@ -23,3 +24,18 @@ ul {
   position: absolute;
   bottom: -1rem;
 }
+
+.listingviewbtn {
+border-style: inset;
+border-color:rgb(56, 56, 56);
+background-color:rgb(124, 30, 30);
+color: rgb(255, 249, 249); 
+}
+
+button:hover {
+  background-color: red;
+  color:black;
+}
+
+
+

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Auth from "../Authentication/auth";
+import "./styles.css";
 
 export default class Signup extends Component {
   constructor(props, context) {
@@ -26,7 +27,7 @@ export default class Signup extends Component {
   render() {
     return (
       <>
-        <Button variant="nav-link" onClick={this.handleShow}>
+        <Button variant="nav-link" className="signup" onClick={this.handleShow}>
           Sign Up
         </Button>
 

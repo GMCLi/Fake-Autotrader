@@ -9,13 +9,16 @@ import VehDetails from "./components/VehDetails/vehdetails";
 import Form from "./components/CreditcardForm/Form";
 import Admin from "./components/Admin/Admin";
 import Account from "./components/Account/account";
+import Favlistings from "./components/Account/favlistings";
+import Favarticles from "./components/Account/favarticles";
+import Userlistings from "./components/Account/userlistings";
 
 //User Search for Make
 let makeSearch = "Ferrari";
 //User Search for Model
 //let modelSearch = "";
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
-const marketAPIKey = "Ej0IjiK8ecrggjOcg4dCVy6lauBBlAAS";
+const marketAPIKey = "A5IT88Qvj3I0haACL4WW3lIHBwA2oPQE";
 
 class App extends Component {
   state = {
@@ -71,10 +74,14 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" render={() => <div className="row">{singlelisting}</div>} />
-            <Route exact path="/account" render={() => <Account signedin={this.state.signedIn} />} />
+            <Route exact path="/account/favoritelistings" component={Favlistings} />
+
+            <Route exact path="/account/favoritearticles" component={Favarticles} />
+            <Route exact path="/account/userlistings" component={Userlistings} />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Articles} />
             <Route exact path="/admin" component={Admin} />
+            <Route exact path="/account" render={() => <Account signedin={this.state.signedIn} />} />
             <Route exact path="/:id" component={VehDetails} />
             <Route exact path="/:id/downpay" component={Form} />
           </Switch>

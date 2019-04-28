@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Savedarticles extends Component {
+class Favarticles extends Component {
   state = {
 
   }
@@ -16,4 +16,4 @@ class Savedarticles extends Component {
   }
 }
 
-export default Savedarticles;
+export default Favarticles;
