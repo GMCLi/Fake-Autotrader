@@ -2,7 +2,8 @@
   width: 350px;
   height: 33rem;
   border-style: inset;
-  margin: 25px;
+  margin: auto; 
+  /* Originally 25px Thoughts? => revert back to 25px or keep auto */
   position: center;
 }
 
