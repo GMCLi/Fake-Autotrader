@@ -12,11 +12,8 @@ import Account from "./components/Account/account";
 import Favlistings from "./components/Account/favlistings";
 import Favarticles from "./components/Account/favarticles";
 import Userlistings from "./components/Account/userlistings";
+import Autocomplete from "./components/Autocomplete/Autocomplete";
 
-//User Search for Make
-let makeSearch = "Ferrari";
-//User Search for Model
-//let modelSearch = "";
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
 const marketAPIKey = "A5IT88Qvj3I0haACL4WW3lIHBwA2oPQE";
 
@@ -25,20 +22,36 @@ class App extends Component {
     //State - user signed in or not
     signedIn: false,
     //Empty Array For Listings To Be Filled By Axios GET Request
-    listings: []
+    listings: [],
+    //User input Make
+    makeSearch: "",
+    //User input Model
+    modelSearch: "",
+    //User input Year
+    yearSearch: "",
+    //Autocomplete Data
+    autocomplete: []
   };
 
   //Axios GET Request - no limit required, brings up top 20
   // Search = () => {
-  componentDidMount() {
-    //"https://jsonplaceholder.typicode.com/users"
+  // componentDidMount() {
+  //"https://jsonplaceholder.typicode.com/users"
+  handleSearch = (event) => {
+    event.preventDefault();
     axios
       .get(
+        // Request URL
         "https://marketcheck-prod.apigee.net/v1/search?api_key=" +
-
+        // API Key
         marketAPIKey +
-        "&seller_type=dealer&make=" +
-        makeSearch +
+        // Make
+        "&seller_type=dealer&make=" + this.state.makeSearch +
+        // Model
+        "&model=" + this.state.modelSearch +
+        // Year
+        "&year=" + this.state.yearSearch +
+        // 25 listings
         "&rows=25"
 
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
@@ -48,7 +61,36 @@ class App extends Component {
         this.setState({ listings });
       });
   }
+
+  // // Get autocomplete data from url
+  // auto = () => {
+  //   axios.get(
+  //     // Request URL
+  //     "https://marketcheck-prod.apigee.net/v1/search/auto-complete?api_key=" +
+  //     // API Key + year make model field
+  //     marketAPIKey + "field=ymm&input="
+  //     // Input letter
+
+  //   )
   // }
+
+  // Update state makeSearch with user input
+  updatemakeSearch = (evt) => {
+    evt.preventDefault();
+    this.setState({ makeSearch: evt.target.value })
+  }
+
+  // Update state modelSearch with user input
+  updatemodelSearch = (evt) => {
+    evt.preventDefault();
+    this.setState({ modelSearch: evt.target.value })
+  }
+
+  // Update state yearSearch with user input
+  updateyearSearch = (evt) => {
+    evt.preventDefault();
+    this.setState({ yearSearch: evt.target.value })
+  }
 
   render() {
     // Map through the listings
@@ -62,6 +104,7 @@ class App extends Component {
           make={listing.build.make}
           model={listing.build.model}
           price={listing.ref_price}
+
           images={listing.media.photo_links}
         />
       );
@@ -71,11 +114,33 @@ class App extends Component {
       <div className="App">
         <Router>
           <Navbar />
+          {/* // Search Form */}
+          <div className="row searchForm">
+            <div className="col-sm-8">
+              <form onSubmit={this.searchSubmit}>
+                {/* // Search Make */}
+                < div className="form-group makesearchform" >
+                  <label for="makeinput"></label>
+                  <input type="text" class="form-control" placeholder="Search Make" onChange={this.updatemakeSearch} />
+                </div >
+                {/* // Search Model */}
+                <div className="form-group modelsearchform">
+                  <label for="modelinput"></label>
+                  <input type="text" class="form-control" placeholder="Search Model" onChange={this.updatemodelSearch} />
+                </div>
+                {/* // Search Year */}
+                <div className="form-group yearsearchform">
+                  <label for="yearinput"></label>
+                  <input type="text" class="form-control" placeholder="Search Year" onChange={this.updateyearSearch} />
+                </div>
+                <button type="submit" className="btn searchBtn" onClick={this.handleSearch}>Search</button>
+              </form>
+            </div>
+          </div>
 
           <Switch>
             <Route exact path="/" render={() => <div className="row">{singlelisting}</div>} />
             <Route exact path="/account/favoritelistings" component={Favlistings} />
-
             <Route exact path="/account/favoritearticles" component={Favarticles} />
             <Route exact path="/account/userlistings" component={Userlistings} />
             <Route exact path="/articles" component={Articles} />
@@ -86,7 +151,6 @@ class App extends Component {
             <Route exact path="/:id/downpay" component={Form} />
           </Switch>
         </Router>
-
       </div >
     );
   }
