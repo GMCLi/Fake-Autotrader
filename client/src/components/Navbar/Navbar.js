@@ -6,7 +6,7 @@ import "./styles.css";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar">
-      <a className="navbar-brand-main" href="/">
+      <a className="navbar-brand main" href="/">
         Fake Autotrader
       </a>
       <ul className="nav nav-tabs">
@@ -14,9 +14,9 @@ function Navbar() {
           <Link
             to="/"
             className={
-              window.location.pathname === "/"
-                ? "nav-link active"
-                : "nav-link"
+              window.location.pathname === "/" 
+              ? "nav-link active" 
+              : "nav-link"
             }
           >
             Home
@@ -62,9 +62,9 @@ function Navbar() {
           <Link
             to="/"
             className={
-              window.location.pathname === "/"
-                ? "nav-link active"
-                : "nav-link"
+              window.location.pathname === "/" 
+              ? "nav-link active" 
+              : "nav-link"
             }
           >
             <SignUp />
