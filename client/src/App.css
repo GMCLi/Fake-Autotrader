@@ -32,7 +32,6 @@
   }
 }
 
-
 .card {
   width: 400px;
   height: 17rem;
@@ -40,8 +39,6 @@
   margin: 25px;
   position: center;
 }
-
-
 
 ul {
   list-style-type: none;

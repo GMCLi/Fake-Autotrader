@@ -1,6 +1,5 @@
 // Dependencies
 const express = require("express");
-const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 
@@ -22,17 +21,13 @@ app.use(routes)
 
 // Connect to mongoDB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/listings", {
+  process.env.MONGODB_URI || "mongodb://localhost/FavoriteListing", {
+    useCreateIndex: true,
     useNewUrlParser: true
   }
 );
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
+// Connecting to port
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
