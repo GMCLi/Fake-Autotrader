@@ -1,9 +1,7 @@
 import React from "react";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 
 function Admin() {
-
-
   return (
     <Table>
       <thead>
@@ -17,7 +15,6 @@ function Admin() {
       </thead>
     </Table>
   );
-
 }
 
 export default Admin;
