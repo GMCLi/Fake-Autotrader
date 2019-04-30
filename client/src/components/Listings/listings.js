@@ -5,8 +5,6 @@ import { Carousel } from "react-responsive-carousel";
 
 const styles = {
   card: {
-    width: 400,
-    height: "38rem",
     borderStyle: "inset",
     margin: "25",
     position: "center"
@@ -40,7 +38,7 @@ class Listings extends Component {
     });
 
     return (
-      <div className="card" style={styles.card}>
+      <div className="listingcard" style={styles.card}>
         <Carousel>{displayImg}</Carousel>
         <div className="card-body">
           <p>
