@@ -38,16 +38,19 @@ class Listings extends Component {
     });
 
     return (
-      <div className="listingcard" style={styles.card}>
-        <Carousel>{displayImg}</Carousel>
-        <div className="card-body">
-          <p>
-            {this.props.year} {this.props.make} {this.props.model}
-          </p>
-          <p>{formatter.format(this.props.price)}</p>
-          <button className="listingviewbtn" onClick={this.gotocar}>
-            View This Listing
+      <div>
+        {/* Card with carousel displaying info for each listing from props */}
+        <div className="listingcard" style={styles.card}>
+          <Carousel>{displayImg}</Carousel>
+          <div className="card-body">
+            <p>
+              {this.props.year} {this.props.make} {this.props.model}
+            </p>
+            <p>{formatter.format(this.props.price)}</p>
+            <button className="listingviewbtn" onClick={this.gotocar}>
+              View This Listing
           </button>
+          </div>
         </div>
       </div>
     );
