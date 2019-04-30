@@ -26,7 +26,7 @@ class Listings extends Component {
     const displayImg = this.props.images.splice(0 - 5).map(image => {
       return (
         <div key={this.props.id}>
-          <img src={image} alt={this.props} />
+          <img src={image} alt={this.props} className="listing-img" />
         </div>
       );
     });

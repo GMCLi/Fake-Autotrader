@@ -2,13 +2,13 @@
   width: 350px;
   height: 33rem;
   border-style: inset;
-  margin: auto; 
+  margin: auto;
   /* Originally 25px Thoughts? => revert back to 25px or keep auto */
   position: center;
 }
 
-img {
-  height: 20rem!important;
+.listing-img {
+  height: 20rem !important;
 }
 
 ul {
@@ -26,16 +26,13 @@ ul {
 }
 
 .listingviewbtn {
-border-style: inset;
-border-color:rgb(56, 56, 56);
-background-color:rgb(124, 30, 30);
-color: rgb(255, 249, 249); 
+  border-style: inset;
+  border-color: rgb(56, 56, 56);
+  background-color: rgb(124, 30, 30);
+  color: rgb(255, 249, 249);
 }
 
 button:hover {
   background-color: red;
-  color:black;
+  color: black;
 }
-
-
-
