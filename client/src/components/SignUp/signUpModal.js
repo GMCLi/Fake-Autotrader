@@ -32,13 +32,13 @@ export default class Signup extends Component {
         </Button>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
+          <Modal.Header className="Head"closeButton>
             <Modal.Title>Quick Sign In!</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="Body">
             <Auth setUser={this.props.setUser} />
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer className="Foot">
             <Button variant="Link" onClick={this.handleClose}>
               Close
             </Button>
