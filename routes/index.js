@@ -1,15 +1,13 @@
-const router = require("express").Router();
-const carResults = require("../controllers/scrapeController");
 
-router.get("/api/scrape", function(req, res) {
-  carResults
-    .carScrape()
-    .then(function(results) {
-      res.json(results);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
-});
+const path = require("path");
+const router = require("express").Router();
+const apiRoutes = require("./API");
+
+router.use("/api", apiRoutes);
+
+// If no routes hit
+router.use((req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+})
 
 module.exports = router;

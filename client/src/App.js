@@ -31,10 +31,9 @@ class App extends Component {
     yearSearch: "",
     //Autocomplete Data
     autocomplete: []
+
   };
 
-  //Axios GET Request - no limit required, brings up top 20
-  // Search = () => {
   // componentDidMount() {
   //"https://jsonplaceholder.typicode.com/users"
   handleSearch = (event) => {
@@ -53,7 +52,6 @@ class App extends Component {
         "&year=" + this.state.yearSearch +
         // 25 listings
         "&rows=25"
-
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         // console.log(res.data)
@@ -73,6 +71,7 @@ class App extends Component {
 
   //   )
   // }
+
 
   // Update state makeSearch with user input
   updatemakeSearch = (evt) => {
@@ -104,7 +103,6 @@ class App extends Component {
           make={listing.build.make}
           model={listing.build.model}
           price={listing.ref_price}
-
           images={listing.media.photo_links}
         />
       );
