@@ -3,6 +3,7 @@ import "./styles.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
+import API from "../../utils/API.js";
 // import { Button, Collapse } from "react-bootstrap";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
@@ -122,6 +123,42 @@ class VehDetails extends Component {
     window.location.href = window.location.href + "/downpay";
   }
 
+  saveBtn = () => {
+
+    /*const listingPass = this.state.listing;
+    
+
+    API.saveListing({ listingData: listingPass})
+      .then( res => {
+        console.log("Listing Saved");
+      })*/
+
+    API.saveListing({
+      images: this.state.images,
+      make: this.state.make,
+      model: this.state.model,
+      year: this.state.year,
+      mileageMile: this.state.mileageMile,
+      mileageKm: this.state.mileageKm,
+      exteriorcolor: this.state.exterior_color,
+      interiorcolor: this.state.interiorcolor,
+      //dealerinfo: this.state.dealerinfo,
+      features: this.state.features,
+      exteriorfeatures: this.state.exteriorfeatures,
+      standardfeatures: this.state.standardfeatures,
+      interiorfeatures: this.state.interiorfeatures,
+      safetyfeatures: this.state.safetyfeatures,
+      dealershipwebsite: this.state.dealershipwebsite
+    })
+    .then( res => {
+      console.log("Listing Saved");
+    })
+
+
+
+  };
+
+
   render() {
     // Number formatter for mileages
     const formatter = new Intl.NumberFormat("en-US", {
@@ -167,11 +204,7 @@ class VehDetails extends Component {
                 <button className="downpayBtn" onClick={this.downPay}>
                   Put A Down Payment Now!
                 </button>
-              </div><br></br>
-          </div>
-        </div>
 
-      
         {/* Feature Row */}
         <div className="row features ">
           {/* Column for general features */}
@@ -216,7 +249,6 @@ class VehDetails extends Component {
             </div>
           </div>
         </div>
-
         {/* Feature Row 2*/}
         <div className="row features ">
           {/* Column for general features */}
@@ -246,5 +278,5 @@ class VehDetails extends Component {
     );
   }
 }
-
 export default VehDetails;
+

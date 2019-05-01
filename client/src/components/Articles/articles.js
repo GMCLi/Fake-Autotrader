@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Card from "react-bootstrap/Card";
 
+
 export default class Articles extends Component {
   state = {
     cars: []
@@ -43,4 +44,6 @@ export default class Articles extends Component {
       </div>
     );
   }
+
 }
+
