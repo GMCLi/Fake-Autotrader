@@ -7,18 +7,20 @@ import "./auth.css";
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-class App extends Component {
+
+class Auth extends Component {
   render() {
     const { user, signOut, signInWithGoogle } = this.props;
-
+    console.log(user);
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="Auth">
+        <header className="Auth-header">
+          <br />
           <img
             src={
               "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.hellogiggles.com%2Fuploads%2F2017%2F01%2F18200433%2FGmail.jpg&w=450&c=sc&poi=face&q=85"
             }
-            className="App-logo"
+            className="Auth-logo"
             alt="logo"
           />
           {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in.</p>}
@@ -28,6 +30,7 @@ class App extends Component {
           ) : (
             <button onClick={signInWithGoogle}>Sign in with Google</button>
           )}
+          <br />
         </header>
       </div>
     );
@@ -43,4 +46,5 @@ const providers = {
 export default withFirebaseAuth({
   providers,
   firebaseAppAuth
-})(App);
+})(Auth);
+

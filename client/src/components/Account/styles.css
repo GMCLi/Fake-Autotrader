@@ -1,0 +1,17 @@
+.signincard {
+  margin: auto
+}
+
+.signupcard {
+  border: none;
+}
+
+.card {
+  height: 400px;
+  width: 400px;
+  margin: auto
+}
+
+.row {
+  margin-top: 30px;
+}

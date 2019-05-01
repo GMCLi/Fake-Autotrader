@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Card from "react-bootstrap/Card";
+
 
 export default class Articles extends Component {
   state = {
@@ -20,15 +22,18 @@ export default class Articles extends Component {
     const scrapes =
       this.state.cars.length > 0 &&
       this.state.cars.map(car => (
-        <ol className="text-center" key={car.id}>
-          <p>Title: {car.title}</p>
-          <p>
-            Link:{" "}
-            <a href={car.link} target={"_blank"}>
-              {car.link}
+        <Card
+          className="text-center"
+          key={car.id}
+          style={{ display: "inline-block", width: "60%", height: "25%" }}
+        >
+          <p key={car.id}>Title: {car.title}</p>
+          <p key={car.id}>
+            <a href={car.link} key={car.id} target={"_blank"}>
+              Link
             </a>
           </p>
-        </ol>
+        </Card>
       ));
 
     console.log("our scrape: ", scrapes);
@@ -39,4 +44,6 @@ export default class Articles extends Component {
       </div>
     );
   }
+
 }
+

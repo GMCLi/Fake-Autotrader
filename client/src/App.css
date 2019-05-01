@@ -43,3 +43,16 @@
 ul {
   list-style-type: none;
 }
+
+.col-sm-8 {
+  width: 100%
+}
+
+.searchBtn {
+  margin-right: 30rem
+}
+.form-group {
+  width: 200px;
+  float: left;
+  margin-left: 20px;
+}

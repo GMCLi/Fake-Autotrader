@@ -5,8 +5,6 @@ import { Carousel } from "react-responsive-carousel";
 
 const styles = {
   card: {
-    width: 400,
-    height: "38rem",
     borderStyle: "inset",
     margin: "25",
     position: "center"
@@ -28,7 +26,7 @@ class Listings extends Component {
     const displayImg = this.props.images.splice(0 - 5).map(image => {
       return (
         <div key={this.props.id}>
-          <img src={image} alt={this.props} />
+          <img src={image} alt={this.props} className="listing-img" />
         </div>
       );
     });
@@ -40,16 +38,19 @@ class Listings extends Component {
     });
 
     return (
-      <div className="card" style={styles.card}>
-        <Carousel>{displayImg}</Carousel>
-        <div className="card-body">
-          <p>
-            {this.props.year} {this.props.make} {this.props.model}
-          </p>
-          <p>{formatter.format(this.props.price)}</p>
-          <button className="listingviewbtn" onClick={this.gotocar}>
-            View This Listing
+      <div>
+        {/* Card with carousel displaying info for each listing from props */}
+        <div className="listingcard" style={styles.card}>
+          <Carousel>{displayImg}</Carousel>
+          <div className="card-body">
+            <p>
+              {this.props.year} {this.props.make} {this.props.model}
+            </p>
+            <p>{formatter.format(this.props.price)}</p>
+            <button className="listingviewbtn" onClick={this.gotocar}>
+              View This Listing
           </button>
+          </div>
         </div>
       </div>
     );

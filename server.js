@@ -6,6 +6,7 @@ const routes = require("./routes");
 // Inititalize App
 const PORT = process.env.PORT || 3001;
 const app = express();
+const routes = require("./routes");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
