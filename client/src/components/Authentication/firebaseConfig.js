@@ -9,3 +9,4 @@ var config = {
 // firebase.initializeApp(config);
 
 export default config;
+
