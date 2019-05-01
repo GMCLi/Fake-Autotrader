@@ -44,12 +44,14 @@ ul {
   list-style-type: none;
 }
 
-.col-sm-8 {
-  width: 100%
-}
+/* .col-sm-8 {
+  width: 100%;
+} */
 
 .searchBtn {
-  margin-right: 30rem
+  background-color: blue;
+  color: azure;
+  margin-top: 23px;
 }
 .form-group {
   width: 200px;

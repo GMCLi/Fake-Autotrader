@@ -13,6 +13,7 @@ import Favlistings from "./components/Account/favlistings";
 import Favarticles from "./components/Account/favarticles";
 import Userlistings from "./components/Account/userlistings";
 import Autocomplete from "./components/Autocomplete/Autocomplete";
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
 const marketAPIKey = "A5IT88Qvj3I0haACL4WW3lIHBwA2oPQE";
@@ -118,57 +119,80 @@ class App extends Component {
       <div className="App">
         <Router>
           <Navbar setUser={this.setUser} />
-          {/* // Search Form */}
-          <div className="row searchForm">
-            <div className="col-sm-8">
-              <form onSubmit={this.searchSubmit}>
-                {/* // Search Make */}
-                <div className="form-group makesearchform">
-                  <label for="makeinput" />
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search Make"
-                    onChange={this.updatemakeSearch}
-                  />
-                </div>
-                {/* // Search Model */}
-                <div className="form-group modelsearchform">
-                  <label for="modelinput" />
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search Model"
-                    onChange={this.updatemodelSearch}
-                  />
-                </div>
-                {/* // Search Year */}
-                <div className="form-group yearsearchform">
-                  <label for="yearinput" />
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search Year"
-                    onChange={this.updateyearSearch}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn searchBtn"
-                  onClick={this.handleSearch}
-                >
-                  Search
-                </button>
-              </form>
-            </div>
-          </div>
+          <Jumbotron
+            style={{
+              height: "50vmin",
+              backgroundImage:
+                "url(" +
+                "https://wpblink.com/sites/default/files/wallpaper/motors/71830/old-car-wallpapers-hd-71830-431447.png" +
+                ")",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "100% 100%",
+              margin: "0"
+            }}
+          >
+            <h3
+              style={{
+                color: "rgb(124,29,30)",
+                textAlign: "left"
+              }}
+            >
+              Search Cars and Suv`s
+            </h3>
+          </Jumbotron>
 
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <div className="row searchForm">
+                <div className="col-sm-8">
+                  <form onSubmit={this.searchSubmit}>
+                    {/* // Search Make */}
+
+                    <div className="form-group makesearchform">
+                      <label for="makeinput" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search Make"
+                        onChange={this.updatemakeSearch}
+                      />
+                    </div>
+                    {/* // Search Model */}
+                    <div className="form-group modelsearchform">
+                      <label for="modelinput" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search Model"
+                        onChange={this.updatemodelSearch}
+                      />
+                    </div>
+                    {/* // Search Year */}
+                    <div className="form-group yearsearchform">
+                      <label for="yearinput" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search Year"
+                        onChange={this.updateyearSearch}
+                      />
+                    </div>
+                    <button
+                      variant="primary"
+                      type="submit"
+                      className="btn searchBtn"
+                      onClick={this.handleSearch}
+                    >
+                      Search
+                    </button>
+                  </form>
+                </div>
+              </div>
+            )}
+          />
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => <div className="row">{singlelisting}</div>}
-            />
             <Route
               exact
               path="/account/favoritelistings"
