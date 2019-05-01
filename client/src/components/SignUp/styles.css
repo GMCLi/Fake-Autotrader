@@ -1,8 +1,26 @@
 .signup{
 color:rgb(255, 255, 255)!important;
-background-color:rgb(124, 30, 30)!important;
+background-color:rgb(36, 35, 35)!important;
 }
+
+.Head{
+color:rgb(255, 255, 255)!important;
+background-color:rgb(124, 30, 30);
+}
+
+.Body{
+background-color:#282c34;   
+}
+
+.Foot{
+background-color:rgb(124, 30, 30);   
+}
+
+
 
 .signup:hover{
 color:red!important;    
+}
+.signup{
+background-color:rgb(124, 30, 30)!important;
 }

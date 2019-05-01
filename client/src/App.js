@@ -116,7 +116,7 @@ class App extends Component {
           <Navbar />
           {/* // Search Form */}
           <div className="row searchForm">
-            <div className="col-sm-8">
+            <div className="col-sm-12">
               <form onSubmit={this.searchSubmit}>
                 {/* // Search Make */}
                 < div className="form-group makesearchform" >
@@ -133,10 +133,12 @@ class App extends Component {
                   <label for="yearinput"></label>
                   <input type="text" class="form-control" placeholder="Search Year" onChange={this.updateyearSearch} />
                 </div>
+                <div className="col-sm-12">
                 <button type="submit" className="btn searchBtn" onClick={this.handleSearch}>Search</button>
+                </div><br></br>
               </form>
             </div>
-          </div>
+          </div><br></br>
 
           <Switch>
             <Route exact path="/" render={() => <div className="row">{singlelisting}</div>} />

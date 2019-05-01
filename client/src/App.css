@@ -49,10 +49,18 @@ ul {
 }
 
 .searchBtn {
-  margin-right: 30rem
+  margin: 0 auto;
 }
 .form-group {
   width: 200px;
   float: left;
   margin-left: 20px;
+}
+
+.searchForm{
+margin: 0 30%;
+background-color: #ffffff;
+border-style:solid;
+border-color: black;
+border-radius:10px;
 }
