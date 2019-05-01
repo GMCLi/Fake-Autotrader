@@ -9,11 +9,11 @@ class Account extends Component {
   }
 
   routefavlistings = () => {
-    window.location.href = window.location.href + "favoritelistings"
+    window.location.href = window.location.href + "/favoritelistings"
   }
 
   routeuserlistings = () => {
-    window.location.href = window.location.href + "userlistings"
+    window.location.href = window.location.href + "/userlistings"
   }
 
   render() {
