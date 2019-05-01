@@ -34,6 +34,7 @@ class App extends Component {
     yearSearch: "",
     //Autocomplete Data
     autocomplete: []
+
   };
 
   // componentDidMount() {
@@ -79,6 +80,7 @@ class App extends Component {
 
   //   )
   // }
+
 
   // Update state makeSearch with user input
   updatemakeSearch = evt => {

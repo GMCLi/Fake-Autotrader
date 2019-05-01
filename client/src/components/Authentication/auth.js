@@ -7,6 +7,7 @@ import "./auth.css";
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+
 class Auth extends Component {
   render() {
     const { user, signOut, signInWithGoogle, setUser } = this.props;
@@ -61,3 +62,4 @@ export default withFirebaseAuth({
   providers,
   firebaseAppAuth
 })(Auth);
+
