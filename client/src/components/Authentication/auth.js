@@ -9,7 +9,10 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 class Auth extends Component {
   render() {
-    const { user, signOut, signInWithGoogle } = this.props;
+    const { user, signOut, signInWithGoogle, setUser } = this.props;
+    if (user) {
+      console.log(user);
+    }
     console.log(user);
     return (
       <div className="Auth">
@@ -27,7 +30,29 @@ class Auth extends Component {
           {user ? (
             <button onClick={signOut}>Sign out</button>
           ) : (
-            <button onClick={signInWithGoogle}>Sign in with Google</button>
+            //   <button onClick={signInWithGoogle}>Sign in with Google</button>
+            // )}
+            <button
+              onClick={() => {
+                signInWithGoogle().then(
+                  user =>
+                    setUser({
+                      name: user.user.displayName,
+                      email: user.user.email,
+                      id: user.user.uid
+                    })
+                  // console.log(
+                  //   user.user.displayName,
+                  //   user.user.email,
+                  //   user.user.uid,
+                  //   this.setState({ userInfos: this.props.user }),
+                  //   console.log(this.state.userInfos)
+                  // )
+                );
+              }}
+            >
+              Sign in with Google
+            </button>
           )}
           <br />
         </header>

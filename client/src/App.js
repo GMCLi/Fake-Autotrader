@@ -8,6 +8,7 @@ import Articles from "./components/Articles/articles";
 import VehDetails from "./components/VehDetails/vehdetails";
 import Form from "./components/CreditcardForm/Form";
 import Admin from "./components/Admin/Admin";
+import Auth from "./components/Authentication/auth";
 import Account from "./components/Account/account";
 import Favlistings from "./components/Account/favlistings";
 import Favarticles from "./components/Account/favarticles";
@@ -24,6 +25,7 @@ class App extends Component {
   state = {
     //State - user signed in or not
     signedIn: false,
+    user: {},
     //Empty Array For Listings To Be Filled By Axios GET Request
     listings: []
   };
@@ -35,12 +37,10 @@ class App extends Component {
     axios
       .get(
         "https://marketcheck-prod.apigee.net/v1/search?api_key=" +
-
-        marketAPIKey +
-        "&seller_type=dealer&make=" +
-        makeSearch +
-        "&rows=25"
-
+          marketAPIKey +
+          "&seller_type=dealer&make=" +
+          makeSearch +
+          "&rows=25"
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         // console.log(res.data)
@@ -49,6 +49,9 @@ class App extends Component {
       });
   }
   // }
+  setUser = user => {
+    this.setState({ user });
+  };
 
   render() {
     // Map through the listings
@@ -70,24 +73,50 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Navbar />
+          <Navbar setUser={this.setUser} />
 
           <Switch>
-            <Route exact path="/" render={() => <div className="row">{singlelisting}</div>} />
-            <Route exact path="/account/favoritelistings" component={Favlistings} />
+            <Route
+              exact
+              path="/"
+              render={() => <div className="row">{singlelisting}</div>}
+            />
+            <Route
+              exact
+              path="/account/favoritelistings"
+              component={Favlistings}
+            />
 
-            <Route exact path="/account/favoritearticles" component={Favarticles} />
-            <Route exact path="/account/userlistings" component={Userlistings} />
+            <Route
+              exact
+              path="/account/favoritearticles"
+              component={Favarticles}
+            />
+            <Route
+              exact
+              path="/account/userlistings"
+              component={Userlistings}
+            />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Articles} />
-            <Route exact path="/admin" component={Admin} />
-            <Route exact path="/account" render={() => <Account signedin={this.state.signedIn} />} />
+            {/* <Route exact path="/admin" component={Admin} /> */}
+            <Route
+              exact
+              path="/admin"
+              render={() => <Admin user={this.state.user} />}
+            />
+
+            {/* <Route path="/greeting/:name" render={(props) => <Greeting text="Hello, " {...props} />} /> */}
+            <Route
+              exact
+              path="/account"
+              render={() => <Account signedin={this.state.signedIn} />}
+            />
             <Route exact path="/:id" component={VehDetails} />
             <Route exact path="/:id/downpay" component={Form} />
           </Switch>
         </Router>
-
-      </div >
+      </div>
     );
   }
 }
