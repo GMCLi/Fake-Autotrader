@@ -36,7 +36,7 @@ export default class Signup extends Component {
             <Modal.Title>Quick Sign In!</Modal.Title>
           </Modal.Header>
           <Modal.Body className="Body">
-            <Auth />
+            <Auth setUser={this.props.setUser} />
           </Modal.Body>
           <Modal.Footer className="Foot">
             <Button variant="Link" onClick={this.handleClose}>
