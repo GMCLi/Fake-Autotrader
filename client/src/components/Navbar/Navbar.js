@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SignUp from "../SignUp/signUpModal";
 import "./styles.css";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar">
       <a className="navbar-brand main" href="/">
@@ -14,9 +14,7 @@ function Navbar() {
           <Link
             to="/"
             className={
-              window.location.pathname === "/" 
-              ? "nav-link active" 
-              : "nav-link"
+              window.location.pathname === "/" ? "nav-link active" : "nav-link"
             }
           >
             Home
@@ -62,12 +60,10 @@ function Navbar() {
           <Link
             to="/"
             className={
-              window.location.pathname === "/" 
-              ? "nav-link active" 
-              : "nav-link"
+              window.location.pathname === "/" ? "nav-link active" : "nav-link"
             }
           >
-            <SignUp />
+            <SignUp setUser={props.setUser} />
           </Link>
         </li>
       </ul>

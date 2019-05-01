@@ -19,6 +19,8 @@ const marketAPIKey = "A5IT88Qvj3I0haACL4WW3lIHBwA2oPQE";
 
 class App extends Component {
   state = {
+    //user Authentication Data
+    user: {},
     //State - user signed in or not
     signedIn: false,
     //Empty Array For Listings To Be Filled By Axios GET Request
@@ -31,34 +33,39 @@ class App extends Component {
     yearSearch: "",
     //Autocomplete Data
     autocomplete: []
-
   };
 
   // componentDidMount() {
   //"https://jsonplaceholder.typicode.com/users"
-  handleSearch = (event) => {
+  handleSearch = event => {
     event.preventDefault();
     axios
       .get(
         // Request URL
         "https://marketcheck-prod.apigee.net/v1/search?api_key=" +
-        // API Key
-        marketAPIKey +
-        // Make
-        "&seller_type=dealer&make=" + this.state.makeSearch +
-        // Model
-        "&model=" + this.state.modelSearch +
-        // Year
-        "&year=" + this.state.yearSearch +
-        // 25 listings
-        "&rows=25"
+          // API Key
+          marketAPIKey +
+          // Make
+          "&seller_type=dealer&make=" +
+          this.state.makeSearch +
+          // Model
+          "&model=" +
+          this.state.modelSearch +
+          // Year
+          "&year=" +
+          this.state.yearSearch +
+          // 25 listings
+          "&rows=25"
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         // console.log(res.data)
         const listings = res.data.listings; //.listings
         this.setState({ listings });
       });
-  }
+  };
+  setUser = user => {
+    this.setState({ user });
+  };
 
   // // Get autocomplete data from url
   // auto = () => {
@@ -72,24 +79,23 @@ class App extends Component {
   //   )
   // }
 
-
   // Update state makeSearch with user input
-  updatemakeSearch = (evt) => {
+  updatemakeSearch = evt => {
     evt.preventDefault();
-    this.setState({ makeSearch: evt.target.value })
-  }
+    this.setState({ makeSearch: evt.target.value });
+  };
 
   // Update state modelSearch with user input
-  updatemodelSearch = (evt) => {
+  updatemodelSearch = evt => {
     evt.preventDefault();
-    this.setState({ modelSearch: evt.target.value })
-  }
+    this.setState({ modelSearch: evt.target.value });
+  };
 
   // Update state yearSearch with user input
-  updateyearSearch = (evt) => {
+  updateyearSearch = evt => {
     evt.preventDefault();
-    this.setState({ yearSearch: evt.target.value })
-  }
+    this.setState({ yearSearch: evt.target.value });
+  };
 
   render() {
     // Map through the listings
@@ -111,45 +117,90 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Navbar />
+          <Navbar setUser={this.setUser} />
           {/* // Search Form */}
           <div className="row searchForm">
             <div className="col-sm-8">
               <form onSubmit={this.searchSubmit}>
                 {/* // Search Make */}
-                < div className="form-group makesearchform" >
-                  <label for="makeinput"></label>
-                  <input type="text" class="form-control" placeholder="Search Make" onChange={this.updatemakeSearch} />
-                </div >
+                <div className="form-group makesearchform">
+                  <label for="makeinput" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search Make"
+                    onChange={this.updatemakeSearch}
+                  />
+                </div>
                 {/* // Search Model */}
                 <div className="form-group modelsearchform">
-                  <label for="modelinput"></label>
-                  <input type="text" class="form-control" placeholder="Search Model" onChange={this.updatemodelSearch} />
+                  <label for="modelinput" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search Model"
+                    onChange={this.updatemodelSearch}
+                  />
                 </div>
                 {/* // Search Year */}
                 <div className="form-group yearsearchform">
-                  <label for="yearinput"></label>
-                  <input type="text" class="form-control" placeholder="Search Year" onChange={this.updateyearSearch} />
+                  <label for="yearinput" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search Year"
+                    onChange={this.updateyearSearch}
+                  />
                 </div>
-                <button type="submit" className="btn searchBtn" onClick={this.handleSearch}>Search</button>
+                <button
+                  type="submit"
+                  className="btn searchBtn"
+                  onClick={this.handleSearch}
+                >
+                  Search
+                </button>
               </form>
             </div>
           </div>
 
           <Switch>
-            <Route exact path="/" render={() => <div className="row">{singlelisting}</div>} />
-            <Route exact path="/account/favoritelistings" component={Favlistings} />
-            <Route exact path="/account/favoritearticles" component={Favarticles} />
-            <Route exact path="/account/userlistings" component={Userlistings} />
+            <Route
+              exact
+              path="/"
+              render={() => <div className="row">{singlelisting}</div>}
+            />
+            <Route
+              exact
+              path="/account/favoritelistings"
+              component={Favlistings}
+            />
+            <Route
+              exact
+              path="/account/favoritearticles"
+              component={Favarticles}
+            />
+            <Route
+              exact
+              path="/account/userlistings"
+              component={Userlistings}
+            />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Articles} />
-            <Route exact path="/admin" component={Admin} />
-            <Route exact path="/account" render={() => <Account signedin={this.state.signedIn} />} />
+            <Route
+              exact
+              path="/admin"
+              render={() => <Admin user={this.state.user} />}
+            />
+            <Route
+              exact
+              path="/account"
+              render={() => <Account signedin={this.state.signedIn} />}
+            />
             <Route exact path="/:id" component={VehDetails} />
             <Route exact path="/:id/downpay" component={Form} />
           </Switch>
         </Router>
-      </div >
+      </div>
     );
   }
 }
