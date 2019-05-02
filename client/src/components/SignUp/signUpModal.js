@@ -26,13 +26,13 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <Button variant="nav-link" className="signup" onClick={this.handleShow}>
           Sign Up
         </Button>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header className="Head"closeButton>
+          <Modal.Header className="Head" closeButton>
             <Modal.Title>Quick Sign In!</Modal.Title>
           </Modal.Header>
           <Modal.Body className="Body">
@@ -44,8 +44,7 @@ export default class Signup extends Component {
             </Button>
           </Modal.Footer>
         </Modal>
-      </>
+      </div>
     );
   }
 }
-
