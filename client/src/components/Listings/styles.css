@@ -2,9 +2,13 @@
   width: 350px;
   height: 33rem;
   border-style: inset;
+  border-color: black;
   margin: auto;
   /* Originally 25px Thoughts? => revert back to 25px or keep auto */
   position: center;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
 }
 
 .listing-img {

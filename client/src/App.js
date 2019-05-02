@@ -145,7 +145,7 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <div className="row searchForm">
+              <div className="row searchForm text-center">
                 <div className="col-sm-8">
                   <form onSubmit={this.searchSubmit}>
                     {/* // Search Make */}

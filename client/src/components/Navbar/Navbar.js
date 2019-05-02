@@ -44,7 +44,7 @@ function Navbar(props) {
             Admin
           </Link>
         </li>
-        <li className="nav-link">
+        {/* <li className="nav-link">
           <Link
             to="/account"
             className={
@@ -55,10 +55,10 @@ function Navbar(props) {
           >
             Account
           </Link>
-        </li>
+        </li> */}
         <li className="nav-item sign">
           <Link
-            to="/"
+            to="/account"
             className={
               window.location.pathname === "/" ? "nav-link active" : "nav-link"
             }
