@@ -1,10 +1,26 @@
-.col-sm-8 {
+.col-sm-3 {
   margin: auto
 }
 
 .card {
-  width: 100%;
+  width: 70%!important;
   height: 100%;
+  overflow: auto;
+  border-color:black;
+  border-style:solid;
+  border-width: 2px;
+  border-radius: 15px;  
+}
+
+.Image{
+width: 30%!important;
+height: 100%; 
+}
+
+.feats {
+  width: 80%;
+  height: 100%;
+  overflow: auto!important;
 }
 
 .thumbs-wrapper {
@@ -16,4 +32,41 @@
 
 img {
   height: 25rem
+}
+
+.Page{
+  border-style:inset;
+  background-color:rgb(124, 30, 30);
+  border-width: 2px;
+  border-radius: 15px; 
+}
+
+.info{  
+background-color:white;
+border-radius: 15px;
+border-color:black;
+border-style:solid;
+border-width: 2px;
+border-radius: 15px;    
+}
+
+.dealerBtn{
+color:white;
+border-radius: 15px;
+border-color:black;
+background-color:rgb(124, 30, 30);
+border-style:solid;
+border-width: 1px;
+border-radius: 15px;
+}
+
+
+.downpayBtn{
+color:white;
+border-radius: 15px;
+border-color:black;
+background-color:rgb(124, 30, 30);
+border-style:solid;
+border-width: 1px;
+border-radius: 15px;
 }
