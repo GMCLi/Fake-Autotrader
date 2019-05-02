@@ -28,7 +28,7 @@ class Auth extends Component {
           {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in.</p>}
 
           {user ? (
-            <button onClick={signOut}>Sign out</button>
+            <button className="SignOut" onClick={signOut}>Sign out</button>
           ) : (
             <button
               onClick={() => {
