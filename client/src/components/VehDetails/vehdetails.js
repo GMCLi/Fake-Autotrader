@@ -44,9 +44,9 @@ class VehDetails extends Component {
     axios
       .get(
         "https://marketcheck-prod.apigee.net/v1/listing" +
-        this.props.location.pathname +
-        "?api_key=" +
-        marketAPIKey
+          this.props.location.pathname +
+          "?api_key=" +
+          marketAPIKey
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         console.log(res.data);
@@ -116,15 +116,14 @@ class VehDetails extends Component {
   }
 
   dealerRelocate = () => {
-    window.location.assign("https://" + this.state.dealershipwebsite)
-  }
+    window.location.assign("https://" + this.state.dealershipwebsite);
+  };
 
   downPay() {
     window.location.href = window.location.href + "/downpay";
   }
 
   saveBtn = () => {
-
     /*const listingPass = this.state.listing;
     
 
@@ -149,15 +148,10 @@ class VehDetails extends Component {
       interiorfeatures: this.state.interiorfeatures,
       safetyfeatures: this.state.safetyfeatures,
       dealershipwebsite: this.state.dealershipwebsite
-    })
-    .then( res => {
+    }).then(res => {
       console.log("Listing Saved");
-    })
-
-
-
+    });
   };
-
 
   render() {
     // Number formatter for mileages
@@ -177,41 +171,27 @@ class VehDetails extends Component {
     // // Mechanism for collapsing cards
     // const { open } = this.state;
 
-
     return (
-      <div>
-        {/* Row for carousel */}
-        <div className="row">
-          <div className="col-sm-8">
-            <div className="card">
-              <Carousel>{displayImg}</Carousel>
-            </div>
-          </div>
+      <div className="col-sm-12">
+        <div className="card Image">
+          <Carousel>{displayImg}</Carousel>
         </div>
-
-        {/* Row for general info */}
-        <div className="row">
-          <div className="col-sm-8">
-            <div className="card">
-              <div className="card-body">
-                <h3>General Information</h3>
-                <p>Make: {this.state.make}</p>
-                <p>Model: {this.state.model}</p>
-                <p>Year: {this.state.year}</p>
-                <p>Mileage in Km: {formatter.format(this.state.mileageKm)}</p>
-                <p>Mileage in Miles: {this.state.mileageMile}</p>
-                <button className="dealerBtn" onClick={this.dealerRelocate}>
-                  Go To The Dealership's Website
-                </button>
-                <button className="downpayBtn" onClick={this.downPay}>
-                  Put A Down Payment Now!
-                </button>
-              </div>
-              <button className="saveBtn" onClick={this.saveBtn}>
-                  Save This Article
-              </button>
-            </div>
-          </div>
+        <br />
+        <div className="card-body info">
+          <h3>General Information</h3>
+          <p>Make: {this.state.make}</p>
+          <p>Model: {this.state.model}</p>
+          <p>Year: {this.state.year}</p>
+          <p>Mileage in Km: {formatter.format(this.state.mileageKm)}</p>
+          <p>Mileage in Miles: {this.state.mileageMile}</p>
+          <button className="dealerBtn" onClick={this.dealerRelocate}>
+            Go To The Dealership's Website
+          </button>
+          <br />
+          <br />
+          <button className="downpayBtn" onClick={this.downPay}>
+            Put A Down Payment Now!
+          </button>
         </div>
         {/* Feature Row */}
         <div className="row features ">
@@ -235,7 +215,7 @@ class VehDetails extends Component {
           </div>
           {/* Column for exterior features */}
           <div className="col-sm-4">
-            <div className="card">
+            <div className="card feats">
               <div className="card-body">
                 <h3>Exterior Features</h3>
                 <ul>{this.extFeat()}</ul>
@@ -244,7 +224,7 @@ class VehDetails extends Component {
           </div>
           {/* Column for standard features */}
           <div className="col-sm-4">
-            <div className="card">
+            <div className="card feats">
               {/* <Button onClick={() => this.setState({ open: !open })} aria-controls="standardData" aria-expanded={open}>Standard Features</Button>
               <Collapse in={this.state.open}> */}
               <div className="card-body" id="standardData">
@@ -261,7 +241,7 @@ class VehDetails extends Component {
         <div className="row features ">
           {/* Column for general features */}
           <div className="col-sm-4">
-            <div className="card">
+            <div className="card feats">
               <div className="card-body">
                 <h3>Interior Features</h3>
                 <ul>
@@ -272,7 +252,7 @@ class VehDetails extends Component {
           </div>
           {/* Column for exterior features */}
           <div className="col-sm-4">
-            <div className="card">
+            <div className="card feats">
               <div className="card-body">
                 <h3>Safety Features</h3>
                 <ul>{this.safeFeat()}</ul>
@@ -284,5 +264,5 @@ class VehDetails extends Component {
     );
   }
 }
-export default VehDetails;
 
+export default VehDetails;
