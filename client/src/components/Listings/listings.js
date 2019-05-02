@@ -36,8 +36,8 @@ class Listings extends Component {
       currency: "USD",
       minimumFractionDigits: 0
     });
+
     return (
-      
       <div>
         {/* Card with carousel displaying info for each listing from props */}
         <div className="listingcard" style={styles.card}>
@@ -52,8 +52,8 @@ class Listings extends Component {
           </button>
           </div>
         </div>
-      </div> 
-    ); 
+      </div>
+    );
   }
 }
 

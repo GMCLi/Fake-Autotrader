@@ -13,7 +13,7 @@ class Auth extends Component {
     if (user) {
       console.log(user);
     }
-
+    console.log(user);
     return (
       <div className="Auth">
         <header className="Auth-header">

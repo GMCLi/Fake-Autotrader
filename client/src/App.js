@@ -12,7 +12,7 @@ import Account from "./components/Account/account";
 import Favlistings from "./components/Account/favlistings";
 import Favarticles from "./components/Account/favarticles";
 import Userlistings from "./components/Account/userlistings";
-//import Autocomplete from "./components/Autocomplete/Autocomplete";
+import Autocomplete from "./components/Autocomplete/Autocomplete";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
