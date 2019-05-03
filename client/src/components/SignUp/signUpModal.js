@@ -28,7 +28,7 @@ export default class Signup extends Component {
     return (
       <div>
         <Button variant="nav-link" className="signup" onClick={this.handleShow}>
-          Sign Up
+          Account
         </Button>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
@@ -36,7 +36,11 @@ export default class Signup extends Component {
             <Modal.Title>Quick Sign In!</Modal.Title>
           </Modal.Header>
           <Modal.Body className="Body">
-            <Auth setUser={this.props.setUser} />
+            <Auth
+              setUser={this.props.setUser}
+              clearUser={this.props.clearUser}
+              signingIn={this.props.signingIn}
+            />
           </Modal.Body>
           <Modal.Footer className="Foot">
             <Button variant="Link" onClick={this.handleClose}>
