@@ -30,20 +30,20 @@ class Auth extends Component {
           {user ? (
             <button className="SignOut" onClick={signOut}>Sign out</button>
           ) : (
-            <button
-              onClick={() => {
-                signInWithGoogle().then(user =>
-                  setUser({
-                    name: user.user.displayName,
-                    email: user.user.email,
-                    id: user.user.uid
-                  })
-                );
-              }}
-            >
-              Sign in with Google
+              <button
+                onClick={() => {
+                  signInWithGoogle().then(user =>
+                    setUser({
+                      name: user.user.displayName,
+                      email: user.user.email,
+                      id: user.user.uid
+                    })
+                  );
+                }}
+              >
+                Sign in with Google
             </button>
-          )}
+            )}
           <br />
         </header>
       </div>

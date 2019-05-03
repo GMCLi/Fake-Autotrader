@@ -24,12 +24,12 @@ class Account extends Component {
     const check = this.props.signedin ?
       <div>
         <div className="row">
-          <div className="card" onClick={this.routefavarticles}>
+          {/* <div className="card" onClick={this.routefavarticles}>
             <img src="http://www.soningenis.com/wp-content/uploads/2013/01/Discovery_of_plaintiffs_and_Non-Parties_in_Lead_paint_Litigation.png" className="articlecard card" />
             <div className="card-body">
               <h5>Your Favorite Articles</h5>
             </div>
-          </div>
+          </div> */}
           <div className="card" onClick={this.routefavlistings}>
             <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/Famous-Movie-Cars-Tumbler.jpg" className="favlistingscard card" />
             <div className="card-body">

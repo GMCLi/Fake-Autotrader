@@ -7,7 +7,8 @@ import Signup from "../SignUp/signUpModal";
 class Form extends Component {
 
   render() {
-    const check = this.props.signedin ?
+    const check =
+      // this.props.signedin ?
       <div>
         &lt;
           <meta charSet="utf-8" />
@@ -73,17 +74,17 @@ class Form extends Component {
               </form>
             </div>
           </div>
-          </div>
-      </div>
-      :
-      <div>
-        <div className="signupcard">
-          <img src="http://almostveggiehouston.com/wp-content/uploads/2013/10/Sign-in.jpg" className="signincard" />
-          <div className="card-body">
-            <Signup />
-          </div>
         </div>
       </div>
+    // :
+    // <div>
+    //   <div className="signupcard">
+    //     <img src="http://almostveggiehouston.com/wp-content/uploads/2013/10/Sign-in.jpg" className="signincard" />
+    //     <div className="card-body">
+    //       <Signup />
+    //     </div>
+    //   </div>
+    // </div>
 
     return (
       <div>
