@@ -5,7 +5,7 @@ import amex from "./img/visa.jpg";
 import Signup from "../SignUp/signUpModal";
 class Form extends Component {
   render() {
-    const check = (
+    const check =
       // this.props.signedin ?
       <div>
         &lt;
@@ -85,7 +85,6 @@ class Form extends Component {
           </div>
         </div>
       </div>
-    );
     // :
     // <div>
     //   <div className="signupcard">
@@ -95,7 +94,12 @@ class Form extends Component {
     //     </div>
     //   </div>
     // </div>
-    return <div>{check}</div>;
+
+    return (
+      <div>
+        {check}
+      </div>
+    )
   }
 }
 export default Form;
