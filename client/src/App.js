@@ -123,7 +123,7 @@ class App extends Component {
             setUser={this.setUser}
             clearUser={this.clearUser}
             signingIn={this.signingIn}
-          />
+          /><br></br>
           <Jumbotron
             style={{
               height: "65vmin",
@@ -131,7 +131,7 @@ class App extends Component {
                 "url(" + "http://inn.spb.ru/images/100/DSC100132073.jpg" + ")",
               backgroundRepeat: "no-repeat",
               backgroundSize: "100% 100%",
-              margin: "0"
+              margin: "0% 25% 20px 25%"
             }}
           >
             <h3
@@ -149,7 +149,7 @@ class App extends Component {
             path="/"
             render={() => (
               <div className="row searchForm">
-                <div className="col-sm-8">
+                <div className="col-sm-8 main">
                   <form onSubmit={this.searchSubmit}>
                     {/* // Search Make */}
 

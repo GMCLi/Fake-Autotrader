@@ -117,3 +117,20 @@
   margin: 5px 0 0 0;
   font-size: 14px;
 }
+
+#visa{
+width: 50px;
+height: 50px;
+}
+#amex{
+width: 50px;
+height: 50px;
+}
+#mastercard{
+width: 50px;
+height: 50px;
+}
+
+.img{
+float:left!important;    
+}
