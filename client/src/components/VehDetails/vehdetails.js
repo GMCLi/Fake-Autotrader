@@ -44,9 +44,9 @@ class VehDetails extends Component {
     axios
       .get(
         "https://marketcheck-prod.apigee.net/v1/listing" +
-          this.props.location.pathname +
-          "?api_key=" +
-          marketAPIKey
+        this.props.location.pathname +
+        "?api_key=" +
+        marketAPIKey
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         console.log(res.data);

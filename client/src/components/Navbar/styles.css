@@ -1,22 +1,22 @@
-.navbar{
-background-color:rgb(124, 30, 30);
-border-bottom-style:inset; 
+.navbar {
+  background-color: rgb(80, 80, 255);
+  border-bottom-style: inset;
 }
 
-.main{
-color:rgb(255, 255, 255);   
+.main {
+  color: rgb(255, 255, 255);
 }
 
-.nav-link{
-color:rgb(250, 250, 250)!important;
-background-color:rgb(124, 30, 30)!important;
-border-color:rgb(124, 30, 30)!important;
+.nav-link {
+  color: rgb(250, 250, 250) !important;
+  background-color: rgb(80, 80, 255) !important;
+  border-color: rgb(80, 80, 255) !important;
 }
 
 .nav-link:hover {
-    color: red!important;
+  color: grey !important;
 }
 
-.main:hover{
-color:red;
+.main:hover {
+  color: grey;
 }
