@@ -8,10 +8,6 @@ import "./auth.css";
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 class Auth extends Component {
-  // handleProps = (clearUser) => {
-
-  // };
-
   render() {
     const { user, signOut, signInWithGoogle, setUser, clearUser } = this.props;
     if (user) {
@@ -36,7 +32,12 @@ class Auth extends Component {
             }
         } */}
           {user ? (
-            <button className="SignOut" onClick={clearUser}>
+            <button
+              className="SignOut"
+              onClick={() => {
+                signOut().then(clearUser());
+              }}
+            >
               Sign out
             </button>
           ) : (

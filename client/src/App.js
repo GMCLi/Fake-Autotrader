@@ -12,7 +12,7 @@ import Account from "./components/Account/account";
 import Favlistings from "./components/Account/favlistings";
 import Favarticles from "./components/Account/favarticles";
 import Userlistings from "./components/Account/userlistings";
-import Autocomplete from "./components/Autocomplete/Autocomplete";
+// import Autocomplete from "./components/Autocomplete/Autocomplete";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import CreateListing from "./components/CreateListing/createlisting";
 import UpdateListing from "./components/Account/updatelist";
@@ -68,12 +68,12 @@ class App extends Component {
     this.setState({ user });
   };
 
-  clearUser = user => {
+  clearUser = () => {
     this.setState({ user: {}, signedIn: false });
   };
 
   componentDidMount() {
-    if (this.state.user != {}) {
+    if (this.state.user !== {}) {
       this.setState({ signedIn: true });
     }
   }
@@ -126,11 +126,9 @@ class App extends Component {
           />
           <Jumbotron
             style={{
-              height: "50vmin",
+              height: "65vmin",
               backgroundImage:
-                "url(" +
-                "https://wpblink.com/sites/default/files/wallpaper/motors/71830/old-car-wallpapers-hd-71830-431447.png" +
-                ")",
+                "url(" + "http://inn.spb.ru/images/100/DSC100132073.jpg" + ")",
               backgroundRepeat: "no-repeat",
               backgroundSize: "100% 100%",
               margin: "0"
@@ -138,7 +136,7 @@ class App extends Component {
           >
             <h3
               style={{
-                color: "rgb(124,29,30)",
+                color: "white",
                 textAlign: "left"
               }}
             >
