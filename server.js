@@ -19,6 +19,7 @@ app.use(express.json());
 // Call Our API Routes
 app.use(routes)
 
+
 // Connect to mongoDB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/FavoriteListing", {
