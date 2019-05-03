@@ -13,7 +13,7 @@ class Auth extends Component {
     if (user) {
       console.log(user);
     }
-    console.log(user);
+
     return (
       <div className="Auth">
         <header className="Auth-header">
@@ -28,7 +28,9 @@ class Auth extends Component {
           {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in.</p>}
 
           {user ? (
-            <button className="SignOut" onClick={signOut}>Sign out</button>
+            <button className="SignOut" onClick={signOut}>
+              Sign out
+            </button>
           ) : (
             <button
               onClick={() => {

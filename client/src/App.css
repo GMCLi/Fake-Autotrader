@@ -44,17 +44,17 @@ ul {
   list-style-type: none;
 }
 
-/* .col-sm-8 {
+.col-sm-8 {
   width: 100%;
-} */
+}
 
 .searchBtn {
-  background-color: blue;
+  background-color: rgb(124, 30, 30);
   color: azure;
   margin-top: 23px;
 }
 .form-group {
   width: 200px;
   float: left;
-  margin-left: 20px;
+  margin-left: 50px;
 }

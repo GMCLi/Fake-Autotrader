@@ -14,7 +14,7 @@ function SearchForm() {
               <label for="makeinput" />
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Search Make"
                 onChange={this.updatemakeSearch}
               />
@@ -24,7 +24,7 @@ function SearchForm() {
               <label for="modelinput" />
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Search Model"
                 onChange={this.updatemodelSearch}
               />
@@ -34,7 +34,7 @@ function SearchForm() {
               <label for="yearinput" />
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Search Year"
                 onChange={this.updateyearSearch}
               />

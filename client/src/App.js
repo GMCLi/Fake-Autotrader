@@ -16,7 +16,7 @@ import Autocomplete from "./components/Autocomplete/Autocomplete";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
-const marketAPIKey = "A5IT88Qvj3I0haACL4WW3lIHBwA2oPQE";
+const marketAPIKey = "4729hGUCUG84KyW0G3a69hfMbYNVfV82";
 
 class App extends Component {
   state = {
@@ -210,11 +210,11 @@ class App extends Component {
             />
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/signup" component={Articles} />
-            <Route
+            {/* <Route
               exact
               path="/admin"
               render={() => <Admin user={this.state.user} />}
-            />
+            /> */}
             <Route
               exact
               path="/account"

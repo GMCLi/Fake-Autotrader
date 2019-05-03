@@ -1,34 +1,37 @@
-import React, { Component } from 'react';
-import Axios from 'axios';
+import React, { Component } from "react";
+//import Axios from 'axios';
 
 class SearchQueryForm extends Comnponent {
+  state = {
+    make: ""
+  };
 
-    state = {
-        make: ""
-    }
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
 
-    handleInputChange = event => {
-        const value = event.target.value;
-        const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
 
-        this.setState({
-            [name]: value
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <form className="form">
-                    <label>
-                        Make: <input type="text" name="make" value={this.state.make} onChange={this.handleInputChange}/>
-                    </label>
-                </form>
-            </div>
-        );
-    }
-
-
+  render() {
+    return (
+      <div>
+        <form className="form">
+          <label>
+            Make:{" "}
+            <input
+              type="text"
+              name="make"
+              value={this.state.make}
+              onChange={this.handleInputChange}
+            />
+          </label>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default SearchQueryForm;
