@@ -9,11 +9,15 @@ class Account extends Component {
   }
 
   routefavlistings = () => {
-    window.location.href = window.location.href + "favoritelistings"
+    window.location.href = window.location.href + "/favoritelistings"
   }
 
   routeuserlistings = () => {
-    window.location.href = window.location.href + "userlistings"
+    window.location.href = window.location.href + "/userlistings"
+  }
+
+  routecreatelisting = () => {
+    window.location.href = window.location.href + "/createlisting"
   }
 
   render() {
@@ -36,6 +40,12 @@ class Account extends Component {
             <img src="https://www.chesterstandard.co.uk/resources/images/7378477/?type=responsive-gallery-fullscreen" className="userlistingscard card" />
             <div className="card-body">
               <h5>Your Personal Listings</h5>
+            </div>
+          </div>
+          <div className="card" onClick={this.routecreatelisting}>
+            <img src="https://www.chesterstandard.co.uk/resources/images/7378477/?type=responsive-gallery-fullscreen" className="userlistingscard card" />
+            <div className="card-body">
+              <h5>Sell A Vehicle</h5>
             </div>
           </div>
         </div>
