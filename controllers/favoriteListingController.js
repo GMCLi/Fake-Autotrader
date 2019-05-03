@@ -12,7 +12,8 @@ module.exports = {
             .catch(err => console.log(err));
     },
     create: (req, res) => {
-        db.FavoriteListing.create(req.body)
+        console.log(req.body.saving)
+        db.FavoriteListing.create(req.body.saving)
             .then(dbListing => res.json(dbListing))
             .catch(err => console.log(err));
     },

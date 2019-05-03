@@ -32,6 +32,10 @@
   }
 }
 
+.col-sm-8 {
+  margin: auto
+}
+
 .card {
   width: 400px;
   height: 17rem;

@@ -126,35 +126,34 @@ class VehDetails extends Component {
 
   saveListing = event => {
     event.preventDefault();
-    console.log(this.state.listing)
-
-    /*const listingPass = this.state.listing;
-    
-
-    API.saveListing({ listingData: listingPass})
-      .then( res => {
-        console.log("Listing Saved");
-      })*/
-
-    // API.saveListing({
-    //   images: this.state.images,
-    //   make: this.state.make,
-    //   model: this.state.model,
-    //   year: this.state.year,
-    //   mileageMile: this.state.mileageMile,
-    //   mileageKm: this.state.mileageKm,
-    //   exteriorcolor: this.state.exterior_color,
-    //   interiorcolor: this.state.interiorcolor,
-    //   //dealerinfo: this.state.dealerinfo,
-    //   features: this.state.features,
-    //   exteriorfeatures: this.state.exteriorfeatures,
-    //   standardfeatures: this.state.standardfeatures,
-    //   interiorfeatures: this.state.interiorfeatures,
-    //   safetyfeatures: this.state.safetyfeatures,
-    //   dealershipwebsite: this.state.dealershipwebsite
-    // }).then(res => {
-    //   console.log("Listing Saved");
-    // });
+    console.log(this.state.listing.id)
+    const saving = {
+      id: this.state.listing.id,
+      // images: this.state.images,
+      make: this.state.make,
+      model: this.state.model,
+      year: this.state.year,
+      mileageMile: this.state.mileageMile,
+      mileageKm: this.state.mileageKm,
+      exteriorcolor: this.state.exterior_color,
+      interiorcolor: this.state.interiorcolor,
+      // dealerinfo: this.state.dealerinfo,
+      features: this.state.features,
+      exteriorfeatures: this.state.exteriorfeatures,
+      standardfeatures: this.state.standardfeatures,
+      interiorfeatures: this.state.interiorfeatures,
+      safetyfeatures: this.state.safetyfeatures,
+      dealershipwebsite: this.state.dealershipwebsite
+    }
+    // console.log(this.state.listing.id)
+    axios
+      .post(
+        "/api/listings/", { saving }
+      )
+      .then(res => {
+        console.log(res);
+        console.log(res.data)
+      })
   };
 
   render() {

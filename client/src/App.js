@@ -44,19 +44,19 @@ class App extends Component {
       .get(
         // Request URL
         "https://marketcheck-prod.apigee.net/v1/search?api_key=" +
-          // API Key
-          marketAPIKey +
-          // Make
-          "&seller_type=dealer&make=" +
-          this.state.makeSearch +
-          // Model
-          "&model=" +
-          this.state.modelSearch +
-          // Year
-          "&year=" +
-          this.state.yearSearch +
-          // 25 listings
-          "&rows=25"
+        // API Key
+        marketAPIKey +
+        // Make
+        "&seller_type=dealer&make=" +
+        this.state.makeSearch +
+        // Model
+        "&model=" +
+        this.state.modelSearch +
+        // Year
+        "&year=" +
+        this.state.yearSearch +
+        // 25 listings
+        "&rows=25"
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         // console.log(res.data)
@@ -193,8 +193,10 @@ class App extends Component {
                       Search
                     </button>
                   </form>
+                  <div className="row">
+                    {singlelisting}
+                  </div>
                 </div>
-                {singlelisting}
               </div>
             )}
           />
@@ -236,6 +238,7 @@ class App extends Component {
               path="/account"
               render={() => <Account signedin={this.state.signedIn} />}
             />
+            <Route exact path="/account/favoritelistings/:id" component={VehDetails} />
             <Route exact path="/:id" component={VehDetails} />
             <Route exact path="/:id/downpay" component={Form} />
           </Switch>
