@@ -7,7 +7,6 @@ import "./auth.css";
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-
 class Auth extends Component {
   render() {
     const { user, signOut, signInWithGoogle, setUser } = this.props;
@@ -29,7 +28,7 @@ class Auth extends Component {
           {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in.</p>}
 
           {user ? (
-            <button onClick={signOut}>Sign out</button>
+            <button className="SignOut" onClick={signOut}>Sign out</button>
           ) : (
             <button
               onClick={() => {
@@ -62,4 +61,3 @@ export default withFirebaseAuth({
   providers,
   firebaseAppAuth
 })(Auth);
-

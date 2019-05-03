@@ -179,21 +179,19 @@ class VehDetails extends Component {
 
 
     return (
+      
+      <div className="Page">
       <div>
+      <br></br> <br></br> <br></br> 
         {/* Row for carousel */}
-        <div className="row">
-          <div className="col-sm-8">
-            <div className="card">
-              <Carousel>{displayImg}</Carousel>
-            </div>
-          </div>
-        </div>
-
+      
         {/* Row for general info */}
-        <div className="row">
-          <div className="col-sm-8">
-            <div className="card">
-              <div className="card-body">
+        <div className="listing"><br></br>
+          <div className="col-sm-12">
+            <div className="card Image">
+            <Carousel>{displayImg}</Carousel>
+            </div><br></br>
+              <div className="card-body info">
                 <h3>General Information</h3>
                 <p>Make: {this.state.make}</p>
                 <p>Model: {this.state.model}</p>
@@ -202,7 +200,7 @@ class VehDetails extends Component {
                 <p>Mileage in Miles: {this.state.mileageMile}</p>
                 <button className="dealerBtn" onClick={this.dealerRelocate}>
                   Go To The Dealership's Website
-                </button>
+                </button><br></br><br></br>
                 <button className="downpayBtn" onClick={this.downPay}>
                   Put A Down Payment Now!
                 </button>
@@ -213,6 +211,7 @@ class VehDetails extends Component {
             </div>
           </div>
         </div>
+
         {/* Feature Row */}
         <div className="row features ">
           {/* Column for general features */}
@@ -235,7 +234,7 @@ class VehDetails extends Component {
           </div>
           {/* Column for exterior features */}
           <div className="col-sm-4">
-            <div className="card">
+            <div className="card feats">
               <div className="card-body">
                 <h3>Exterior Features</h3>
                 <ul>{this.extFeat()}</ul>
@@ -244,7 +243,7 @@ class VehDetails extends Component {
           </div>
           {/* Column for standard features */}
           <div className="col-sm-4">
-            <div className="card">
+            <div className="card feats">
               {/* <Button onClick={() => this.setState({ open: !open })} aria-controls="standardData" aria-expanded={open}>Standard Features</Button>
               <Collapse in={this.state.open}> */}
               <div className="card-body" id="standardData">
@@ -261,7 +260,7 @@ class VehDetails extends Component {
         <div className="row features ">
           {/* Column for general features */}
           <div className="col-sm-4">
-            <div className="card">
+            <div className="card feats">
               <div className="card-body">
                 <h3>Interior Features</h3>
                 <ul>
@@ -272,7 +271,7 @@ class VehDetails extends Component {
           </div>
           {/* Column for exterior features */}
           <div className="col-sm-4">
-            <div className="card">
+            <div className="card feats">
               <div className="card-body">
                 <h3>Safety Features</h3>
                 <ul>{this.safeFeat()}</ul>
@@ -280,6 +279,8 @@ class VehDetails extends Component {
             </div>
           </div>
         </div>
+      </div>
+      <br></br><br></br>
       </div>
     );
   }

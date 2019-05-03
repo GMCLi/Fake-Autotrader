@@ -36,7 +36,6 @@ class App extends Component {
     yearSearch: "",
     //Autocomplete Data
     autocomplete: []
-
   };
 
   handleSearch = event => {
