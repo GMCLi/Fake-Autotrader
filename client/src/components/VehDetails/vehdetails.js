@@ -44,9 +44,15 @@ class VehDetails extends Component {
     axios
       .get(
         "https://marketcheck-prod.apigee.net/v1/listing" +
+<<<<<<< HEAD
         this.props.location.pathname +
         "?api_key=" +
         marketAPIKey
+=======
+          this.props.location.pathname +
+          "?api_key=" +
+          marketAPIKey
+>>>>>>> 54c7a3f1564840d53ad957860db01983b1f52b83
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         console.log(res.data);
@@ -272,4 +278,8 @@ class VehDetails extends Component {
     );
   }
 }
+<<<<<<< HEAD
 export default VehDetails;
+=======
+export default VehDetails;
+>>>>>>> 54c7a3f1564840d53ad957860db01983b1f52b83

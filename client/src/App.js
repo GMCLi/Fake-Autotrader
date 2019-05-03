@@ -44,19 +44,19 @@ class App extends Component {
       .get(
         // Request URL
         "https://marketcheck-prod.apigee.net/v1/search?api_key=" +
-        // API Key
-        marketAPIKey +
-        // Make
-        "&seller_type=dealer&make=" +
-        this.state.makeSearch +
-        // Model
-        "&model=" +
-        this.state.modelSearch +
-        // Year
-        "&year=" +
-        this.state.yearSearch +
-        // 25 listings
-        "&rows=25"
+          // API Key
+          marketAPIKey +
+          // Make
+          "&seller_type=dealer&make=" +
+          this.state.makeSearch +
+          // Model
+          "&model=" +
+          this.state.modelSearch +
+          // Year
+          "&year=" +
+          this.state.yearSearch +
+          // 25 listings
+          "&rows=25"
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         // console.log(res.data)
@@ -66,6 +66,19 @@ class App extends Component {
   };
   setUser = user => {
     this.setState({ user });
+  };
+
+  clearUser = user => {
+    this.setState({ user: {}, signedIn: false });
+  };
+
+  componentDidMount() {
+    if (this.state.user != {}) {
+      this.setState({ signedIn: true });
+    }
+  }
+  signingIn = () => {
+    this.setState({ signedIn: true });
   };
 
   // Update state makeSearch with user input
@@ -106,7 +119,11 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Navbar setUser={this.setUser} />
+          <Navbar
+            setUser={this.setUser}
+            clearUser={this.clearUser}
+            signingIn={this.signingIn}
+          />
           <Jumbotron
             style={{
               height: "50vmin",
@@ -179,9 +196,7 @@ class App extends Component {
                 </div>
                 {singlelisting}
               </div>
-            )
-            }
-
+            )}
           />
           <Switch>
             <Route
@@ -200,9 +215,17 @@ class App extends Component {
               component={Userlistings}
             />
             <Route exact path="/articles" component={Articles} />
-            <Route exact path="/account/createlisting" component={CreateListing} />
+            <Route
+              exact
+              path="/account/createlisting"
+              component={CreateListing}
+            />
             <Route exact path="/signup" component={Articles} />
-            <Route exact path="/account/userlistings/updatelisting/:id" component={UpdateListing} />
+            <Route
+              exact
+              path="/account/userlistings/updatelisting/:id"
+              component={UpdateListing}
+            />
             <Route
               exact
               path="/admin"

@@ -8,12 +8,16 @@ import "./auth.css";
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 class Auth extends Component {
+  // handleProps = (clearUser) => {
+
+  // };
+
   render() {
-    const { user, signOut, signInWithGoogle, setUser } = this.props;
+    const { user, signOut, signInWithGoogle, setUser, clearUser } = this.props;
     if (user) {
       console.log(user);
     }
-    console.log(user);
+
     return (
       <div className="Auth">
         <header className="Auth-header">
@@ -26,9 +30,15 @@ class Auth extends Component {
             alt="logo"
           />
           {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in.</p>}
-
+          {/* onClick={(favorite)=>{
+            this.handleSubmit(favorite);
+            this.handleName(favorite);
+            }
+        } */}
           {user ? (
-            <button className="SignOut" onClick={signOut}>Sign out</button>
+            <button className="SignOut" onClick={clearUser}>
+              Sign out
+            </button>
           ) : (
               <button
                 onClick={() => {
