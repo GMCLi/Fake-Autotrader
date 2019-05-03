@@ -6,9 +6,10 @@
   margin: auto;
   /* Originally 25px Thoughts? => revert back to 25px or keep auto */
   position: center;
-  margin-right: 5px;
   margin-bottom: 5px;
   border-radius: 10px;
+  margin-left: 10%;
+  margin-right: 10px;
 }
 
 .listing-img {
@@ -32,11 +33,11 @@ ul {
 .listingviewbtn {
   border-style: inset;
   border-color: rgb(56, 56, 56);
-  background-color: rgb(124, 30, 30);
+  background-color: rgb(80, 80, 255);
   color: rgb(255, 249, 249);
 }
 
 button:hover {
-  background-color: red;
+  background-color: darkblue;
   color: black;
 }

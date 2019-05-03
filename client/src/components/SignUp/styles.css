@@ -1,26 +1,24 @@
-.signup{
-color:rgb(255, 255, 255)!important;
-background-color:rgb(36, 35, 35)!important;
+.signup {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(36, 35, 35) !important;
 }
 
-.Head{
-color:rgb(255, 255, 255)!important;
-background-color:rgb(124, 30, 30);
+.Head {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(80, 80, 255);
 }
 
-.Body{
-background-color:#282c34;   
+.Body {
+  background-color: #282c34;
 }
 
-.Foot{
-background-color:rgb(124, 30, 30);   
+.Foot {
+  background-color: rgb(80, 80, 255);
 }
 
-
-
-.signup:hover{
-color:red!important;    
+.signup:hover {
+  color: grey !important;
 }
-.signup{
-background-color:rgb(124, 30, 30)!important;
+.signup {
+  background-color: rgb(80, 80, 255) !important;
 }
