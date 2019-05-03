@@ -23,7 +23,7 @@ class Account extends Component {
     const check = this.props.signedin ? (
       <div>
         <div className="row">
-          <div className="card" onClick={this.routefavarticles}>
+          {/* <div className="card" onClick={this.routefavarticles}>
             <img
               src="http://www.soningenis.com/wp-content/uploads/2013/01/Discovery_of_plaintiffs_and_Non-Parties_in_Lead_paint_Litigation.png"
               className="articlecard card"
@@ -52,7 +52,7 @@ class Account extends Component {
           </div>
           <div className="card" onClick={this.routecreatelisting}>
             <img
-              src="https://www.chesterstandard.co.uk/resources/images/7378477/?type=responsive-gallery-fullscreen"
+              src="https://mlsincostarica.com/wp-content/uploads/2018/09/For_Sale_By_Owner-NH-270612.jpg"
               className="userlistingscard card"
             />
             <div className="card-body">
