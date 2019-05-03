@@ -6,7 +6,7 @@ function SearchForm() {
       THIS WILL BE THE SearchFORM
       {/* // Search Form */}
       <div className="row searchForm">
-        <div className="col-sm-8">
+        <div className="col-sm-12">
           <form onSubmit={this.searchSubmit}>
             {/* // Search Make */}
 

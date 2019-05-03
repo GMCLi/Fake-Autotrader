@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.main{
+  margin: 0% 25% 0% 25% !important;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -52,6 +56,7 @@ ul {
   background-color: blue;
   color: azure;
   margin-top: 23px;
+  margin-right:300px;
 }
 .form-group {
   width: 200px;

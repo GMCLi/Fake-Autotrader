@@ -6,9 +6,10 @@
   margin: auto;
   /* Originally 25px Thoughts? => revert back to 25px or keep auto */
   position: center;
-  margin-right: 5px;
   margin-bottom: 5px;
   border-radius: 10px;
+  margin-left: 10%;
+  margin-right: 10px;
 }
 
 .listing-img {

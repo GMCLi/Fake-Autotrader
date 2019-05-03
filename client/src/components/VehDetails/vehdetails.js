@@ -195,9 +195,6 @@ class VehDetails extends Component {
               </button>
               <br />
               <br />
-              <button className="downpayBtn" onClick={this.downPay}>
-                Put A Down Payment Now!
-              </button>
             </div>
           </div>
           {/* Feature Row */}

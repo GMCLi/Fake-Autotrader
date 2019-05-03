@@ -25,9 +25,9 @@ export default class Articles extends Component {
         <Card
           className="text-center"
           key={car.id}
-          style={{ display: "inline-block", width: "60%", height: "25%" }}
+          style={{ display: "inline-block", width: "60%", height: "25%" , backgroundColor: "rgb(124, 30, 30)" , color:"white" , paddingTop:"15px", fontSize:"20px"}}
         >
-          <p key={car.id}>Title: {car.title}</p>
+          <p key={car.id}> {car.title}</p>
           <p key={car.id}>
             <a href={car.link} key={car.id} target={"_blank"}>
               Link
@@ -39,7 +39,7 @@ export default class Articles extends Component {
     console.log("our scrape: ", scrapes);
     return (
       <div>
-        <h3>Car Breaking News</h3>
+        <h3>Car Breaking News</h3><hr></hr>
         <ul>{scrapes}</ul>
       </div>
     );
