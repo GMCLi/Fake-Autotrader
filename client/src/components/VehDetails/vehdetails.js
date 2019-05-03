@@ -7,7 +7,7 @@ import API from "../../utils/API.js";
 // import { Button, Collapse } from "react-bootstrap";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
-const marketAPIKey = "A5IT88Qvj3I0haACL4WW3lIHBwA2oPQE";
+const marketAPIKey = "4729hGUCUG84KyW0G3a69hfMbYNVfV82";
 
 class VehDetails extends Component {
   state = {
@@ -116,15 +116,14 @@ class VehDetails extends Component {
   }
 
   dealerRelocate = () => {
-    window.location.assign("https://" + this.state.dealershipwebsite)
-  }
+    window.location.assign("https://" + this.state.dealershipwebsite);
+  };
 
   downPay() {
     window.location.href = window.location.href + "/downpay";
   }
 
   saveBtn = () => {
-
     /*const listingPass = this.state.listing;
     
 
@@ -149,15 +148,10 @@ class VehDetails extends Component {
       interiorfeatures: this.state.interiorfeatures,
       safetyfeatures: this.state.safetyfeatures,
       dealershipwebsite: this.state.dealershipwebsite
-    })
-    .then( res => {
+    }).then(res => {
       console.log("Listing Saved");
-    })
-
-
-
+    });
   };
-
 
   render() {
     // Number formatter for mileages
@@ -177,105 +171,99 @@ class VehDetails extends Component {
     // // Mechanism for collapsing cards
     // const { open } = this.state;
 
-
     return (
-      <div>
+      <div className="Page">
         {/* Row for carousel */}
-        <div className="row">
-          <div className="col-sm-8">
-            <div className="card">
-              <Carousel>{displayImg}</Carousel>
-            </div>
-          </div>
-        </div>
 
         {/* Row for general info */}
-        <div className="row">
-          <div className="col-sm-8">
-            <div className="card">
-              <div className="card-body">
-                <h3>General Information</h3>
-                <p>Make: {this.state.make}</p>
-                <p>Model: {this.state.model}</p>
-                <p>Year: {this.state.year}</p>
-                <p>Mileage in Km: {formatter.format(this.state.mileageKm)}</p>
-                <p>Mileage in Miles: {this.state.mileageMile}</p>
-                <button className="dealerBtn" onClick={this.dealerRelocate}>
-                  Go To The Dealership's Website
-                </button>
-                <button className="downpayBtn" onClick={this.downPay}>
-                  Put A Down Payment Now!
-                </button>
-              </div>
-              <button className="saveBtn" onClick={this.saveBtn}>
-                  Save This Article
+        <div className="listing">
+          <br />
+          <div className="col-sm-12">
+            <div className="card Image">
+              <Carousel>{displayImg}</Carousel>
+            </div>
+            <br />
+            <div className="card-body info">
+              <h3>General Information</h3>
+              <p>Make: {this.state.make}</p>
+              <p>Model: {this.state.model}</p>
+              <p>Year: {this.state.year}</p>
+              <p>Mileage in Km: {formatter.format(this.state.mileageKm)}</p>
+              <p>Mileage in Miles: {this.state.mileageMile}</p>
+              <button className="dealerBtn" onClick={this.dealerRelocate}>
+                Go To The Dealership's Website
+              </button>
+              <br />
+              <br />
+              <button className="downpayBtn" onClick={this.downPay}>
+                Put A Down Payment Now!
               </button>
             </div>
           </div>
-        </div>
-        {/* Feature Row */}
-        <div className="row features ">
-          {/* Column for general features */}
-          <div className="col-sm-4">
-            <div className="card">
-              {/* <button onClick={() => this.setState({ open: !open })}
+          {/* Feature Row */}
+          <div className="row features ">
+            {/* Column for general features */}
+            <div className="col-sm-4">
+              <div className="card">
+                {/* <button onClick={() => this.setState({ open: !open })}
                 aria-controls="genfeatCollapse"
                 aria-expanded={open}>
                 Features
               </button> */}
-              {/* <Collapse in={this.state.open}> */}
-              <div className="card-body">
-                <h3>General Features</h3>
-                <ul>
-                  <li>{this.genFeat()}</li>
-                </ul>
-              </div>
-              {/* </Collapse> */}
-            </div>
-          </div>
-          {/* Column for exterior features */}
-          <div className="col-sm-4">
-            <div className="card">
-              <div className="card-body">
-                <h3>Exterior Features</h3>
-                <ul>{this.extFeat()}</ul>
+                {/* <Collapse in={this.state.open}> */}
+                <div className="card-body">
+                  <h3>General Features</h3>
+                  <ul>
+                    <li>{this.genFeat()}</li>
+                  </ul>
+                </div>
+                {/* </Collapse> */}
               </div>
             </div>
-          </div>
-          {/* Column for standard features */}
-          <div className="col-sm-4">
-            <div className="card">
-              {/* <Button onClick={() => this.setState({ open: !open })} aria-controls="standardData" aria-expanded={open}>Standard Features</Button>
+            {/* Column for exterior features */}
+            <div className="col-sm-4">
+              <div className="card feats">
+                <div className="card-body">
+                  <h3>Exterior Features</h3>
+                  <ul>{this.extFeat()}</ul>
+                </div>
+              </div>
+            </div>
+            {/* Column for standard features */}
+            <div className="col-sm-4">
+              <div className="card feats">
+                {/* <Button onClick={() => this.setState({ open: !open })} aria-controls="standardData" aria-expanded={open}>Standard Features</Button>
               <Collapse in={this.state.open}> */}
-              <div className="card-body" id="standardData">
-                <ul>
-                  <h3>Standard Features</h3>
-                  {this.staFeat()}
-                </ul>
-              </div>
-              {/* </Collapse> */}
-            </div>
-          </div>
-        </div>
-        {/* Feature Row 2*/}
-        <div className="row features ">
-          {/* Column for general features */}
-          <div className="col-sm-4">
-            <div className="card">
-              <div className="card-body">
-                <h3>Interior Features</h3>
-                <ul>
-                  <li>{this.intFeat()}</li>
-                </ul>
+                <div className="card-body" id="standardData">
+                  <ul>
+                    <h3>Standard Features</h3>
+                    {this.staFeat()}
+                  </ul>
+                </div>
+                {/* </Collapse> */}
               </div>
             </div>
           </div>
-          {/* Column for exterior features */}
-          <div className="col-sm-4">
-            <div className="card">
-              <div className="card-body">
-                <h3>Safety Features</h3>
-                <ul>{this.safeFeat()}</ul>
+          {/* Feature Row 2*/}
+          <div className="row features ">
+            {/* Column for general features */}
+            <div className="col-sm-4">
+              <div className="card feats">
+                <div className="card-body">
+                  <h3>Interior Features</h3>
+                  <ul>
+                    <li>{this.intFeat()}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* Column for exterior features */}
+            <div className="col-sm-4">
+              <div className="card feats">
+                <div className="card-body">
+                  <h3>Safety Features</h3>
+                  <ul>{this.safeFeat()}</ul>
+                </div>
               </div>
             </div>
           </div>
@@ -285,4 +273,3 @@ class VehDetails extends Component {
   }
 }
 export default VehDetails;
-

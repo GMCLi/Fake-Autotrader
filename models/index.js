@@ -1,3 +1,4 @@
 module.exports = {
-    FavoriteListing: require("./FavoriteListing")
+    FavoriteListing: require("./FavoriteListing"),
+    UserListing: require("./userlistings")
 };

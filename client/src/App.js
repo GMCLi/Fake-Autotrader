@@ -14,9 +14,11 @@ import Favarticles from "./components/Account/favarticles";
 import Userlistings from "./components/Account/userlistings";
 import Autocomplete from "./components/Autocomplete/Autocomplete";
 import Jumbotron from "react-bootstrap/Jumbotron";
+import CreateListing from "./components/CreateListing/createlisting";
+import UpdateListing from "./components/Account/updatelist";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
-const marketAPIKey = "A5IT88Qvj3I0haACL4WW3lIHBwA2oPQE";
+const marketAPIKey = "4729hGUCUG84KyW0G3a69hfMbYNVfV82";
 
 class App extends Component {
   state = {
@@ -34,30 +36,27 @@ class App extends Component {
     yearSearch: "",
     //Autocomplete Data
     autocomplete: []
-
   };
 
-  // componentDidMount() {
-  //"https://jsonplaceholder.typicode.com/users"
   handleSearch = event => {
     event.preventDefault();
     axios
       .get(
         // Request URL
         "https://marketcheck-prod.apigee.net/v1/search?api_key=" +
-          // API Key
-          marketAPIKey +
-          // Make
-          "&seller_type=dealer&make=" +
-          this.state.makeSearch +
-          // Model
-          "&model=" +
-          this.state.modelSearch +
-          // Year
-          "&year=" +
-          this.state.yearSearch +
-          // 25 listings
-          "&rows=25"
+        // API Key
+        marketAPIKey +
+        // Make
+        "&seller_type=dealer&make=" +
+        this.state.makeSearch +
+        // Model
+        "&model=" +
+        this.state.modelSearch +
+        // Year
+        "&year=" +
+        this.state.yearSearch +
+        // 25 listings
+        "&rows=25"
       ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
       .then(res => {
         // console.log(res.data)
@@ -68,19 +67,6 @@ class App extends Component {
   setUser = user => {
     this.setState({ user });
   };
-
-  // // Get autocomplete data from url
-  // auto = () => {
-  //   axios.get(
-  //     // Request URL
-  //     "https://marketcheck-prod.apigee.net/v1/search/auto-complete?api_key=" +
-  //     // API Key + year make model field
-  //     marketAPIKey + "field=ymm&input="
-  //     // Input letter
-
-  //   )
-  // }
-
 
   // Update state makeSearch with user input
   updatemakeSearch = evt => {
@@ -156,7 +142,7 @@ class App extends Component {
                       <label for="makeinput" />
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Search Make"
                         onChange={this.updatemakeSearch}
                       />
@@ -166,7 +152,7 @@ class App extends Component {
                       <label for="modelinput" />
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Search Model"
                         onChange={this.updatemodelSearch}
                       />
@@ -176,7 +162,7 @@ class App extends Component {
                       <label for="yearinput" />
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Search Year"
                         onChange={this.updateyearSearch}
                       />
@@ -191,8 +177,11 @@ class App extends Component {
                     </button>
                   </form>
                 </div>
+                {singlelisting}
               </div>
-            )}
+            )
+            }
+
           />
           <Switch>
             <Route
@@ -211,7 +200,9 @@ class App extends Component {
               component={Userlistings}
             />
             <Route exact path="/articles" component={Articles} />
+            <Route exact path="/account/createlisting" component={CreateListing} />
             <Route exact path="/signup" component={Articles} />
+            <Route exact path="/account/userlistings/updatelisting/:id" component={UpdateListing} />
             <Route
               exact
               path="/admin"
