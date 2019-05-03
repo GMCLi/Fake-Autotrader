@@ -7,7 +7,7 @@ import API from "../../utils/API.js";
 // import { Button, Collapse } from "react-bootstrap";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
-const marketAPIKey = "A5IT88Qvj3I0haACL4WW3lIHBwA2oPQE";
+const marketAPIKey = "4729hGUCUG84KyW0G3a69hfMbYNVfV82";
 
 class VehDetails extends Component {
   state = {
@@ -47,7 +47,7 @@ class VehDetails extends Component {
         this.props.location.pathname +
         "?api_key=" +
         marketAPIKey
-      ) //"https://marketcheck-prod.apigee.net/v1/search?api_key=" + marketAPIKey + "&seller_type=dealer&make=" + makeSearch
+      )
       .then(res => {
         console.log(res.data);
         const listing = res.data; //.listings
@@ -150,9 +150,9 @@ class VehDetails extends Component {
       safetyfeatures: this.state.safetyfeatures,
       dealershipwebsite: this.state.dealershipwebsite
     })
-    .then( res => {
-      console.log("Listing Saved");
-    })
+      .then(res => {
+        console.log("Listing Saved");
+      })
 
 
 
@@ -208,7 +208,7 @@ class VehDetails extends Component {
                 </button>
               </div>
               <button className="saveBtn" onClick={this.saveBtn}>
-                  Save This Article
+                Save This Article
               </button>
             </div>
           </div>
