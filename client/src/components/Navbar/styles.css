@@ -1,5 +1,5 @@
 .navbar {
-  background-color: rgb(80, 80, 255);
+  background-color: lightgray;
   border-bottom-style: inset;
 }
 
@@ -9,8 +9,8 @@
 
 .nav-link {
   color: rgb(250, 250, 250) !important;
-  background-color: rgb(80, 80, 255) !important;
-  border-color: rgb(80, 80, 255) !important;
+  background-color: lightgray !important;
+  border-color: lightgray !important;
 }
 
 .nav-link:hover {

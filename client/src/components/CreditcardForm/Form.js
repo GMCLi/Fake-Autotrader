@@ -3,11 +3,20 @@ import visa from "./img/amex.jpg";
 import mastercard from "./img/mastercard.jpg";
 import amex from "./img/visa.jpg";
 import Signup from "../SignUp/signUpModal";
+
+const styles = {
+  formcard: {
+    width: "50%",
+    height: "100%"
+  }
+
+};
+
 class Form extends Component {
   render() {
     const check =
-       this.props.signedin ?
-      <div>
+      //  this.props.signedin ?
+      <div className="card formcard" style={styles.formcard}>
         &lt;
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -66,10 +75,24 @@ class Form extends Component {
                     <option value={21}> 2024</option>
                   </select>
                 </div>
-                <div className="form-group" id="credit_cards">
-                  <img src={visa} id="visa" alt="visa" />
-                  <img src={mastercard} id="mastercard" alt="master" />
-                  <img src={amex} id="amex" alt="amex" />
+                <div className="row">
+                  <div className="col-sm-12">
+                    <div className="col-sm-4">
+                      <div className="form-group" id="credit_cards">
+                        <img style={{ height: "15rem" }} src={visa} id="visa" alt="visa" />
+                      </div>
+                    </div>
+                    <div className="col-sm-4">
+                      <div className="form-group" id="credit_cards">
+                        <img style={{ height: "15rem" }} src={mastercard} id="mastercard" alt="master" />
+                      </div>
+                    </div>
+                    <div className="col-sm-4">
+                      <div className="form-group" id="credit_cards">
+                        <img style={{ height: "15rem" }} src={amex} id="amex" alt="amex" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className="form-group" id="pay-now">
                   <button
@@ -85,15 +108,15 @@ class Form extends Component {
           </div>
         </div>
       </div>
-     :
-     <div>
-       <div className="signupcard">
-        <img src="http://almostveggiehouston.com/wp-content/uploads/2013/10/Sign-in.jpg" className="signincard" />
-        <div className="card-body">
-           <Signup />
-         </div>
-       </div>
-     </div>
+    //  :
+    //  <div>
+    //    <div className="signupcard">
+    //     <img src="http://almostveggiehouston.com/wp-content/uploads/2013/10/Sign-in.jpg" className="signincard" />
+    //     <div className="card-body">
+    //        <Signup />
+    //      </div>
+    //    </div>
+    //  </div>
 
     return (
       <div>

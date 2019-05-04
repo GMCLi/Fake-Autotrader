@@ -8,7 +8,11 @@ import API from "../../utils/API.js";
 
 //Market API Key - MAKE IT UNACCESSABLE FOR PEOPLE! - WILL THIS MAKE THE APP UNUSABLE?
 const marketAPIKey = "4729hGUCUG84KyW0G3a69hfMbYNVfV82";
-
+const styles = {
+  carouselcard: {
+    width: "50%"
+  }
+};
 class VehDetails extends Component {
   state = {
     savelist: [],
@@ -182,8 +186,10 @@ class VehDetails extends Component {
         <div className="listing">
           <br />
           <div className="col-sm-12">
-            <div className="card Image">
-              <Carousel>{displayImg}</Carousel>
+            <div className="card carouselcard" style={styles.carouselcard}>
+              <div className="Image">
+                <Carousel className="Carousel">{displayImg}</Carousel>
+              </div>
             </div>
             <br />
             <div className="card-body info">

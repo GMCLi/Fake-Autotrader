@@ -1,5 +1,7 @@
 body {
-  background-image: url("https://www.beautycolorcode.com/e6e6e6-2048x1536.png");
+  background-image: url("http://dabeetz.com/wp-content/uploads/2018/07/cool-website-background-templates-background-template-for-website-ozilalmanoofco-template-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .App {
@@ -7,7 +9,8 @@ body {
 }
 
 .main{
-  margin: 0% 25% 0% 25% !important;
+  /* margin: 0% 25% 0% 25% !important; */
+  margin-left: 17vmin;
 }
 
 .App-logo {
@@ -56,20 +59,15 @@ ul {
   list-style-type: none;
 }
 
-/* .col-sm-8 {
+.col-sm-8 {
   width: 100%;
-} */
+  margin: auto
+}
 
 .searchBtn {
   background-color: blue;
   color: azure;
-
-  margin-top: 23px;
-  margin-right:300px;
-
-
-  margin-left: 50px;
-
+  margin-left: 5vmin
 }
 .form-group {
   display: inline-block;
