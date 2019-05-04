@@ -1,5 +1,13 @@
+body {
+  background-image: url("https://www.beautycolorcode.com/e6e6e6-2048x1536.png");
+}
+
 .App {
   text-align: center;
+}
+
+.main{
+  margin: 0% 25% 0% 25% !important;
 }
 
 .App-logo {
@@ -55,10 +63,17 @@ ul {
 .searchBtn {
   background-color: blue;
   color: azure;
+
   margin-top: 23px;
+  margin-right:300px;
+
+
+  margin-left: 50px;
+
 }
 .form-group {
+  display: inline-block;
+  text-align: center;
   width: 200px;
-  float: left;
-  margin-left: 20px;
+  margin-left: 50px;
 }
