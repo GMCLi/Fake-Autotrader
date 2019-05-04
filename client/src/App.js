@@ -126,12 +126,14 @@ class App extends Component {
           /><br></br>
           <Jumbotron
             style={{
+              width: "75%",
               height: "65vmin",
               backgroundImage:
-                "url(" + "http://inn.spb.ru/images/100/DSC100132073.jpg" + ")",
+                "url(" + "https://wallpapercave.com/wp/EZ9swSJ.jpg" + ")",
               backgroundRepeat: "no-repeat",
               backgroundSize: "100% 100%",
-              margin: "0% 25% 20px 25%"
+              // margin: "0% 25% 20px 25%"
+              margin: "auto"
             }}
           >
             <h3
