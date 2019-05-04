@@ -11,6 +11,7 @@ const marketAPIKey = "4729hGUCUG84KyW0G3a69hfMbYNVfV82";
 
 class VehDetails extends Component {
   state = {
+    savelist: [],
     listing: [],
     images: [],
     make: "",
@@ -123,17 +124,12 @@ class VehDetails extends Component {
     window.location.href = window.location.href + "/downpay";
   }
 
-  saveBtn = () => {
-    /*const listingPass = this.state.listing;
-    
-
-    API.saveListing({ listingData: listingPass})
-      .then( res => {
-        console.log("Listing Saved");
-      })*/
-
-    API.saveListing({
-      images: this.state.images,
+  saveListing = event => {
+    event.preventDefault();
+    console.log(this.state.listing.id)
+    const saving = {
+      id: this.state.listing.id,
+      // images: this.state.images,
       make: this.state.make,
       model: this.state.model,
       year: this.state.year,
@@ -141,16 +137,23 @@ class VehDetails extends Component {
       mileageKm: this.state.mileageKm,
       exteriorcolor: this.state.exterior_color,
       interiorcolor: this.state.interiorcolor,
-      //dealerinfo: this.state.dealerinfo,
+      // dealerinfo: this.state.dealerinfo,
       features: this.state.features,
       exteriorfeatures: this.state.exteriorfeatures,
       standardfeatures: this.state.standardfeatures,
       interiorfeatures: this.state.interiorfeatures,
       safetyfeatures: this.state.safetyfeatures,
       dealershipwebsite: this.state.dealershipwebsite
-    }).then(res => {
-      console.log("Listing Saved");
-    });
+    }
+    // console.log(this.state.listing.id)
+    axios
+      .post(
+        "/api/listings/", { saving }
+      )
+      .then(res => {
+        console.log(res);
+        console.log(res.data)
+      })
   };
 
   render() {
@@ -195,6 +198,14 @@ class VehDetails extends Component {
               </button>
               <br />
               <br />
+              <button className="downpayBtn" onClick={this.downPay}>
+                Put A Down Payment Now!
+              </button>
+              <br />
+              <br />
+              <button className="saveBtn" onClick={this.saveListing}>
+                Save This Listing
+              </button>
             </div>
           </div>
           {/* Feature Row */}
